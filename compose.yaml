@@ -3,7 +3,7 @@ services:
     build: .
     restart: unless-stopped
     ports:
-      - "8088:80"
+      - "80:80"
     read_only: true
     security_opt:
       - no-new-privileges:true
