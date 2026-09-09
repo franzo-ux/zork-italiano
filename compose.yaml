@@ -1,0 +1,12 @@
+services:
+  zork-italiano:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8088:80"
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /var/cache/nginx
+      - /var/run
