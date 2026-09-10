@@ -14,7 +14,7 @@ Poi visita `http://localhost:8000`.
 
 ## Stato del capitolo
 
-Giocabili: esterno della casa, cassetta delle lettere, cucina e soggiorno. Prova `APRI CASSETTA`, `PRENDI VOLANTINO`, `LEGGI VOLANTINO`, `OVEST`, oppure i rispettivi comandi inglesi.
+L'interfaccia pubblicata è ancora un prototipo. La migrazione fedele è in corso: i sorgenti ZIL originali, la relativa licenza e lo script di compilazione sono in [`source/`](source/). Il primo capitolo fedele comprenderà l'esterno e la casa bianca, interamente in italiano.
 
 ## Licenza e provenienza
 
