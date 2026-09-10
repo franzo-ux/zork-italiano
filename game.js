@@ -12,7 +12,8 @@ const rooms = {
 const aliases = {
   n: "nord", north: "nord", nord: "nord", s: "sud", south: "sud", sud: "sud",
   e: "est", east: "est", est: "est", w: "ovest", west: "ovest", ovest: "ovest",
-  out: "fuori", exit: "fuori", fuori: "fuori", in: "est", enter: "est", entra: "est"
+  out: "fuori", exit: "fuori", fuori: "fuori", in: "est", enter: "est", entra: "est",
+  u: "su", up: "su", su: "su", d: "giu", down: "giu", giu: "giu"
 };
 const verbs = {
   guarda: "guarda", guardare: "guarda", look: "guarda", l: "guarda", osserva: "guarda",
@@ -43,13 +44,25 @@ export function translateAssistedInput(raw) {
 
 export function createGame() {
   const state = { room: "ovest", inventory: [], mailboxOpen: false, leafletRead: false, turns: 0 };
+  const visited = new Set([state.room]);
+  const connections = [];
   let hintLevel = 0;
   const describe = () => [`\n${rooms[state.room].title.toUpperCase()}`, rooms[state.room].text];
-  const output = (lines, changed = false) => ({ lines, state: { ...state }, changed });
+  const mapState = () => ({
+    rooms: [...visited].map(id => ({ id, title: rooms[id].title })),
+    connections: connections.map(connection => ({ ...connection })),
+    currentRoom: state.room
+  });
+  const output = (lines, changed = false) => ({ lines, state: { ...state, map: mapState() }, changed });
 
   function move(direction) {
-    const target = rooms[state.room].exits[direction];
+    const from = state.room;
+    const target = rooms[from].exits[direction];
     if (!target) return output(["Non puoi andare da quella parte."]);
+    if (!connections.some(edge => (edge.from === from && edge.to === target) || (edge.from === target && edge.to === from))) {
+      connections.push({ from, to: target, direction });
+    }
+    visited.add(target);
     state.room = target;
     state.turns++;
     return output(describe(), true);

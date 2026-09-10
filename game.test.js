@@ -38,3 +38,18 @@ test("traduce una frase assistita in una sequenza classica", () => {
   assert.deepEqual(result.commands, ["apri finestra", "est"]);
   assert.equal(result.understood, true);
 });
+
+test("l'automappa registra solo movimenti riusciti", () => {
+  const game = createGame();
+  const start = game.start().state.map;
+  assert.deepEqual(start.rooms.map(room => room.id), ["ovest"]);
+  assert.equal(start.connections.length, 0);
+  const failed = game.command("est").state.map;
+  assert.deepEqual(failed, start);
+  const north = game.command("nord").state.map;
+  assert.deepEqual(north.rooms.map(room => room.id), ["ovest", "nord"]);
+  assert.deepEqual(north.connections, [{ from: "ovest", to: "nord", direction: "nord" }]);
+  const back = game.command("sud").state.map;
+  assert.equal(back.connections.length, 1);
+  assert.equal(back.currentRoom, "ovest");
+});
