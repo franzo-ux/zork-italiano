@@ -29,6 +29,7 @@ function has(words, values) { return values.some(value => words.includes(value))
 
 export function createGame() {
   const state = { room: "ovest", inventory: [], mailboxOpen: false, leafletRead: false, turns: 0 };
+  let hintLevel = 0;
   const describe = () => [`\n${rooms[state.room].title.toUpperCase()}`, rooms[state.room].text];
   const output = (lines, changed = false) => ({ lines, state: { ...state }, changed });
 
@@ -58,6 +59,7 @@ export function createGame() {
       if (direct && words.length === 1) return move(direct);
       const verb = verbs[words[0]];
       const target = words.slice(1);
+      if (!verb) return output([`Non riconosco il verbo “${words[0]}”. Prova AIUTO per i comandi disponibili.`]);
       if (verb === "guarda" && !target.length) return output(describe());
       if (verb === "inventario") return output([state.inventory.length ? `Hai con te: ${state.inventory.join(", ")}.` : "Non stai portando nulla."]);
       if (verb === "aiuto") return output(["Comandi: GUARDA, NORD/SUD/EST/OVEST, APRI, LEGGI, PRENDI, INVENTARIO.", "Sono accettati anche i comandi inglesi: LOOK, NORTH, OPEN, READ, TAKE, INVENTORY."]);
@@ -79,7 +81,17 @@ export function createGame() {
         return output(["\"Benvenuto alla Grande Avventura Sotterranea.\"", "Il resto del volantino è purtroppo illeggibile."], true);
       }
       if (verb === "guarda") return inspect(target);
-      return output(["Non capisco quella frase. Prova, per esempio: APRI CASSETTA."]);
+      if (has(target, ["porta", "door", "finestra", "window"])) return output(["Non puoi farlo adesso."]);
+      return output([`Non vedi “${target.join(" ") || "quello"}” qui.`]);
+    },
+    hint() {
+      hintLevel = Math.min(hintLevel + 1, 3);
+      const hints = [
+        "Osserva attentamente ciò che ti circonda: qualcosa vicino alla casa può contenere informazioni utili.",
+        "La cassetta delle lettere merita attenzione. Prova ad aprirla.",
+        "APRI CASSETTA, poi PRENDI VOLANTINO e LEGGI VOLANTINO."
+      ];
+      return output([`Suggerimento ${hintLevel}/3 — ${hints[hintLevel - 1]}`]);
     }
   };
 }
