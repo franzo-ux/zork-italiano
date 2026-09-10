@@ -1,4 +1,4 @@
-import { createGame, translateAssistedInput } from "./game.js";
+import { createGame } from "./game.js";
 
 const story = document.querySelector("#story");
 const form = document.querySelector("#command-form");
@@ -6,8 +6,6 @@ const input = document.querySelector("#command");
 const turns = document.querySelector("#turns");
 const mapElement = document.querySelector("#map");
 const game = createGame();
-let mode = "classic";
-let pending = [];
 const vectors = { nord: [0, -1, 0], sud: [0, 1, 0], est: [1, 0, 0], ovest: [-1, 0, 0], su: [0, 0, 1], giu: [0, 0, -1] };
 
 function escape(value) { const element = document.createElement("span"); element.textContent = value; return element.innerHTML; }
@@ -15,11 +13,8 @@ function print(lines, command = "") {
   if (command) story.insertAdjacentHTML("beforeend", `<p class="command">› ${escape(command)}</p>`);
   for (const line of lines) {
     const room = line && line === line.toUpperCase() && /[A-ZÀ-Ü]/.test(line);
-    const assisted = line?.startsWith("Interpreto:");
-    const className = room ? "room" : assisted ? "assisted" : "";
-    story.insertAdjacentHTML("beforeend", line ? `<p${className ? ` class="${className}"` : ""}>${escape(line)}</p>` : '<p class="space"></p>');
+    story.insertAdjacentHTML("beforeend", line ? `<p${room ? ' class="room"' : ""}>${escape(line)}</p>` : '<p class="space"></p>');
   }
-  story.scrollTop = story.scrollHeight;
 }
 function mapPositions(map) {
   const positions = new Map([[map.rooms[0].id, { x: 0, y: 0, z: 0 }]]);
@@ -34,14 +29,10 @@ function mapPositions(map) {
     }
   }
   return positions;
-
   function place(id, origin, direction, sign) {
     const [dx, dy, dz] = vectors[direction] || [0, 0, 0];
     const position = { x: origin.x + dx * sign, y: origin.y + dy * sign, z: origin.z + dz * sign };
-    while ([...positions.values()].some(point => point.x === position.x && point.y === position.y && point.z === position.z)) {
-      position.x += .35;
-      position.y += .35;
-    }
+    while ([...positions.values()].some(point => point.x === position.x && point.y === position.y && point.z === position.z)) { position.x += .35; position.y += .35; }
     positions.set(id, position);
     changed = true;
   }
@@ -74,38 +65,15 @@ function renderMap(map) {
 }
 function apply(result, command = "") { print(result.lines, command); turns.textContent = `turno ${result.state.turns}`; renderMap(result.state.map); }
 function run(command) { apply(game.command(command), command); }
-function preview(command) {
-  const translated = translateAssistedInput(command);
-  if (!translated.commands.length) return print(["Non riesco a tradurlo in un comando del gioco. Prova a formulare un'azione alla volta."]);
-  pending = translated.commands;
-  const note = translated.understood ? "Premi INVIO per eseguire, oppure scrivi una nuova frase." : "Ho interpretato solo le parti che riconosco. Premi INVIO per eseguire.";
-  print([`Interpreto: ${pending.join(" → ").toUpperCase()}. ${note}`], command);
-  input.value = "";
-  input.placeholder = "Invio per eseguire la sequenza";
-}
-function executePending() {
-  const commands = pending;
-  pending = [];
-  input.placeholder = mode === "assisted" ? "Scrivi cosa vuoi provare…" : "";
-  commands.forEach(run);
-}
 
 apply(game.start());
 form.addEventListener("submit", event => {
   event.preventDefault();
   const command = input.value.trim();
-  if (!command && pending.length) return executePending();
   if (!command) return;
-  if (mode === "assisted") preview(command); else { run(command); input.value = ""; }
-});
-document.querySelectorAll("[data-mode]").forEach(button => button.addEventListener("click", () => {
-  mode = button.dataset.mode;
-  pending = [];
+  run(command);
   input.value = "";
-  input.placeholder = mode === "assisted" ? "Scrivi cosa vuoi provare…" : "";
-  document.querySelectorAll("[data-mode]").forEach(item => item.classList.toggle("active", item === button));
-  print([mode === "assisted" ? "Modalità assistita: descrivi l'azione; ti proporrò i comandi prima di eseguirli." : "Modalità classica: il parser riceve i comandi direttamente."]);
-}));
+});
 const help = document.querySelector("#help");
 let hints = 0;
 help.addEventListener("click", () => {

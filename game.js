@@ -12,14 +12,14 @@ const rooms = {
 const aliases = {
   n: "nord", north: "nord", nord: "nord", s: "sud", south: "sud", sud: "sud",
   e: "est", east: "est", est: "est", w: "ovest", west: "ovest", ovest: "ovest",
-  out: "fuori", exit: "fuori", fuori: "fuori", in: "est", enter: "est", entra: "est",
+  out: "fuori", exit: "fuori", fuori: "fuori",
   u: "su", up: "su", su: "su", d: "giu", down: "giu", giu: "giu"
 };
 const verbs = {
-  guarda: "guarda", guardare: "guarda", look: "guarda", l: "guarda", osserva: "guarda",
+  guarda: "guarda", look: "guarda", l: "guarda", osserva: "guarda",
   inventario: "inventario", inventory: "inventario", i: "inventario",
-  apri: "apri", aprire: "apri", open: "apri", chiudi: "chiudi", chiudere: "chiudi", close: "chiudi",
-  prendi: "prendi", prendere: "prendi", take: "prendi", get: "prendi", leggi: "leggi", leggere: "leggi", read: "leggi",
+  apri: "apri", open: "apri", chiudi: "chiudi", close: "chiudi",
+  prendi: "prendi", take: "prendi", get: "prendi", leggi: "leggi", read: "leggi",
   aiuto: "aiuto", help: "aiuto", ripeti: "guarda", again: "guarda"
 };
 
@@ -27,20 +27,6 @@ function normalizza(command) {
   return command.toLowerCase().trim().replace(/[.!?]/g, "").replace(/\s+/g, " ");
 }
 function has(words, values) { return values.some(value => words.includes(value)); }
-
-export function translateAssistedInput(raw) {
-  const parts = normalizza(raw).split(/\s*(?:e poi|poi|quindi)\s*|\s*,\s*(?:e\s+)?/).filter(Boolean);
-  const commands = parts.map(part => {
-    const words = part.replace(/^(?:provo ad?|vorrei|voglio|potrei|puoi|per favore)\s+/, "").split(" ");
-    const verb = verbs[words[0]] || aliases[words[0]];
-    const object = words.slice(1).filter(word => !["il", "lo", "la", "i", "gli", "le", "un", "una", "nel", "nella"].includes(word)).join(" ");
-    if (aliases[words[0]]) return aliases[words[0]];
-    if (["entra", "entro", "entrare"].includes(words[0])) return "est";
-    if (!verb) return null;
-    return object ? `${verb} ${object}` : verb;
-  });
-  return { commands: commands.filter(Boolean), understood: commands.every(Boolean) };
-}
 
 export function createGame() {
   const state = { room: "ovest", inventory: [], mailboxOpen: false, leafletRead: false, turns: 0 };

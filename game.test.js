@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { createGame, translateAssistedInput } from "./game.js";
+import { createGame } from "./game.js";
 
 test("accetta comandi italiani e inglesi e conserva l'inventario", () => {
   const game = createGame();
@@ -31,12 +31,6 @@ test("offre suggerimenti progressivi", () => {
   assert.match(game.hint().lines[0], /1\/3/);
   assert.match(game.hint().lines[0], /2\/3/);
   assert.match(game.hint().lines[0], /3\/3/);
-});
-
-test("traduce una frase assistita in una sequenza classica", () => {
-  const result = translateAssistedInput("provo ad aprire la finestra e poi entro");
-  assert.deepEqual(result.commands, ["apri finestra", "est"]);
-  assert.equal(result.understood, true);
 });
 
 test("l'automappa registra solo movimenti riusciti", () => {
