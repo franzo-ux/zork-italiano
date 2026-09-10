@@ -11,7 +11,10 @@
     <main class="terminal" aria-label="Zork I, avventura testuale">
       <header>
         <a class="wordmark" href="/" aria-label="Ricomincia Zork">ZORK <small>I</small></a>
-        <p>Edizione italiana · Capitolo 1</p>
+        <div class="mode-switch" aria-label="Modalità di input">
+          <button type="button" class="active" data-mode="classic">Classica</button>
+          <button type="button" data-mode="assisted">Assistita</button>
+        </div>
       </header>
       <section id="story" aria-live="polite" aria-label="Testo dell'avventura"></section>
       <form id="command-form">
