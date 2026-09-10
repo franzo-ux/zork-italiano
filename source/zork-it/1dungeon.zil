@@ -47,16 +47,16 @@
 
 <OBJECT WHITE-HOUSE	
 	(IN LOCAL-GLOBALS)
-	(SYNONYM HOUSE)
-	(ADJECTIVE WHITE BEAUTI COLONI)
-	(DESC "white house")
+	(SYNONYM HOUSE CASA)
+	(ADJECTIVE WHITE BEAUTI COLONI BIANCA)
+	(DESC "casa bianca")
 	(FLAGS NDESCBIT)
 	(ACTION WHITE-HOUSE-F)>
 
 <OBJECT FOREST
 	(IN LOCAL-GLOBALS)
-	(SYNONYM FOREST TREES PINES HEMLOCKS)
-	(DESC "forest")
+	(SYNONYM FOREST TREES PINES BOSCO)
+	(DESC "bosco")
 	(FLAGS NDESCBIT)
 	(ACTION FOREST-F)>
 
@@ -92,9 +92,9 @@
 
 <OBJECT	KITCHEN-WINDOW
 	(IN LOCAL-GLOBALS)
-	(SYNONYM WINDOW)
-	(ADJECTIVE KITCHEN SMALL)
-	(DESC "kitchen window")
+	(SYNONYM WINDOW FINESTRA)
+	(ADJECTIVE KITCHEN SMALL CUCINA PICCOLA)
+	(DESC "finestra della cucina")
 	(FLAGS DOORBIT NDESCBIT)
 	(ACTION KITCHEN-WINDOW-F)>
 
@@ -564,9 +564,9 @@ sceptre is ornamented with colored enamel, and tapers to a sharp point.")
 
 <OBJECT ADVERTISEMENT
 	(IN MAILBOX)
-	(SYNONYM ADVERTISEMENT LEAFLET BOOKLET MAIL)
-	(ADJECTIVE SMALL)
-	(DESC "leaflet")
+	(SYNONYM ADVERTISEMENT LEAFLET VOLANTINO POSTA)
+	(ADJECTIVE SMALL PICCOLO)
+	(DESC "volantino")
 	(FLAGS READBIT TAKEBIT BURNBIT)
 	(LDESC "A small leaflet is on the ground.")
 	(TEXT
@@ -604,9 +604,9 @@ No computer should be without one!\"")
 
 <OBJECT MAILBOX
 	(IN WEST-OF-HOUSE)
-	(SYNONYM MAILBOX BOX)
-	(ADJECTIVE SMALL)
-	(DESC "small mailbox")
+	(SYNONYM MAILBOX BOX CASSETTA POSTA)
+	(ADJECTIVE SMALL PICCOLA)
+	(DESC "piccola cassetta delle lettere")
 	(FLAGS CONTBIT TRYTAKEBIT)
 	(CAPACITY 10)
 	(ACTION MAILBOX-F)>
@@ -1234,11 +1234,11 @@ have, as the mainspring seems sprung.")>
 <GLOBAL WON-FLAG <>>
 <GLOBAL COFFIN-CURE <>>
 
-"SUBTITLE FOREST AND OUTSIDE OF HOUSE"
+"SOTTOTITOLO BOSCO E ESTERNO DELLA CASA"
 
 <ROOM WEST-OF-HOUSE
       (IN ROOMS)
-      (DESC "West of House")
+      (DESC "A ovest della casa")
       (NORTH TO NORTH-OF-HOUSE)
       (SOUTH TO SOUTH-OF-HOUSE)
       (NE TO NORTH-OF-HOUSE)
@@ -1267,7 +1267,7 @@ is a huge stone door which is open. You cannot see into the dark of the tomb.")
 "You are facing the north side of a white house. There is no door here,
 and all the windows are boarded up. To the north a narrow path winds through
 the trees.")
-      (DESC "North of House")
+      (DESC "A nord della casa")
       (SW TO WEST-OF-HOUSE)
       (SE TO EAST-OF-HOUSE)
       (WEST TO WEST-OF-HOUSE)
@@ -1282,7 +1282,7 @@ the trees.")
       (LDESC
 "You are facing the south side of a white house. There is no door here,
 and all the windows are boarded.")
-      (DESC "South of House")
+      (DESC "A sud della casa")
       (WEST TO WEST-OF-HOUSE)
       (EAST TO EAST-OF-HOUSE)
       (NE TO EAST-OF-HOUSE)
@@ -1294,7 +1294,7 @@ and all the windows are boarded.")
 
 <ROOM EAST-OF-HOUSE
       (IN ROOMS)
-      (DESC "Behind House")
+      (DESC "Dietro la casa")
       (NORTH TO NORTH-OF-HOUSE)
       (SOUTH TO SOUTH-OF-HOUSE)
       (SW TO SOUTH-OF-HOUSE)
@@ -1424,11 +1424,11 @@ extends to the east and west.")
 
 \
 
-"SUBTITLE HOUSE"
+"SOTTOTITOLO CASA"
 
 <ROOM KITCHEN
       (IN ROOMS)
-      (DESC "Kitchen")
+      (DESC "Cucina")
       (EAST TO EAST-OF-HOUSE IF KITCHEN-WINDOW IS OPEN)
       (WEST TO LIVING-ROOM)
       (OUT TO EAST-OF-HOUSE IF KITCHEN-WINDOW IS OPEN)
@@ -1450,7 +1450,7 @@ extends to the east and west.")
 
 <ROOM LIVING-ROOM
       (IN ROOMS)
-      (DESC "Living Room")
+      (DESC "Soggiorno")
       (EAST TO KITCHEN)
       (WEST TO STRANGE-PASSAGE IF MAGIC-FLAG ELSE "The door is nailed shut.")
       (DOWN PER TRAP-DOOR-EXIT)

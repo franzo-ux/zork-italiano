@@ -2,27 +2,27 @@
 	        Zork I: The Great Underground Empire
 	(c) Copyright 1983 Infocom, Inc. All Rights Reserved."
 
-"SUBTITLE THE WHITE HOUSE"
+"SOTTOTITOLO LA CASA BIANCA"
 
 <ROUTINE WEST-HOUSE (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"You are standing in an open field west of a white house, with a boarded
-front door.">
+"Ti trovi in un campo aperto a ovest di una casa bianca, con una porta
+d'ingresso sbarrata.">
 		<COND (,WON-FLAG
 		       <TELL
-" A secret path leads southwest into the forest.">)>
+" Un sentiero segreto conduce a sud-ovest nel bosco.">)>
 		<CRLF>)>>
 
 <ROUTINE EAST-HOUSE (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"You are behind the white house. A path leads into the forest
-to the east. In one corner of the house there is a small window
-which is ">
+"Ti trovi dietro la casa bianca. Un sentiero conduce nel bosco
+a est. In un angolo della casa c'è una piccola finestra
+che è ">
 		<COND (<FSET? ,KITCHEN-WINDOW ,OPENBIT>
-		       <TELL "open.">)
-		      (T <TELL "slightly ajar.">)>
+		       <TELL "aperta.">)
+		      (T <TELL "leggermente socchiusa.">)>
 		<CRLF>)>>
 
 <ROUTINE OPEN-CLOSE (OBJ STROPN STRCLS)
@@ -43,7 +43,7 @@ which is ">
 
 <ROUTINE BOARD-F ()
 	 <COND (<VERB? TAKE EXAMINE>
-		<TELL "The boards are securely fastened." CR>)>>
+		<TELL "Le assi sono fissate saldamente." CR>)>>
 
 <ROUTINE TEETH-F ()
 	 <COND (<AND <VERB? BRUSH>
@@ -112,17 +112,17 @@ to brush them with." CR>)
 	   T)
 	  (<VERB? EXAMINE>
 	   <TELL
-"The house is a beautiful colonial house which is painted white.
-It is clear that the owners must have been extremely wealthy." CR>)
+"La casa è una splendida dimora coloniale dipinta di bianco.
+È chiaro che i proprietari dovevano essere molto ricchi." CR>)
 	  (<VERB? THROUGH OPEN>
 	   <COND (<EQUAL? ,HERE ,EAST-OF-HOUSE>
 		  <COND (<FSET? ,KITCHEN-WINDOW ,OPENBIT>
 			 <GOTO ,KITCHEN>)
 			(T
-			 <TELL "The window is closed." CR>
+			 <TELL "La finestra è chiusa." CR>
 			 <THIS-IS-IT ,KITCHEN-WINDOW>)>)
 		 (T
-		  <TELL "I can't see how to get in from here." CR>)>)
+		  <TELL "Da qui non vedo come entrare." CR>)>)
 	  (<VERB? BURN>
 	   <TELL "You must be joking." CR>)>>
 
