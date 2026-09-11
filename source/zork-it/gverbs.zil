@@ -855,10 +855,10 @@ inglesi: LOOK, NORTH, SOUTH, EAST, WEST, OPEN, TAKE, READ e INVENTORY." CR>>
 <ROUTINE V-LEAVE () <DO-WALK ,P?OUT>>
 
 <ROUTINE V-LISTEN ()
-	 <TELL "The " D ,PRSO " makes no sound." CR>>
+	 <TELL "Il " D ,PRSO " non emette alcun suono." CR>>
 
 <ROUTINE V-LOCK ()
-	 <TELL "It doesn't seem to work." CR>>
+	 <TELL "Non sembra funzionare." CR>>
 
 <ROUTINE V-LOOK ()
 	 <COND (<DESCRIBE-ROOM T>
@@ -888,7 +888,7 @@ D ,PRSO " è aperto, ma non riesco a vedere cosa ci sia oltre.">)
 "Non c'è nulla su " D ,PRSO "." CR>))
 				    (ELSE '(<NULL-F> <RTRUE>))>
 			     (T
-			      <TELL "The " D ,PRSO " is empty." CR>)>)
+			      <TELL "Il " D ,PRSO " è vuoto." CR>)>)
 		      (T
 		       <TELL D ,PRSO " è chiuso." CR>)>)
 	       (T
@@ -907,20 +907,20 @@ D ,PRSO " è aperto, ma non riesco a vedere cosa ci sia oltre.">)
 <ROUTINE V-LOWER () <HACK-HACK "Playing in this way with the ">>
 
 <ROUTINE V-MAKE ()
-    	<TELL "You can't do that." CR>>
+	<TELL "Non puoi farlo." CR>>
 
 <ROUTINE V-MELT ()
 	 <TELL "It's not clear that a " D ,PRSO " can be melted." CR>>
 
 <ROUTINE PRE-MOVE ()
 	 <COND (<HELD? ,PRSO>
-		<TELL "You aren't an accomplished enough juggler." CR>)>>
+		<TELL "Non sei un giocoliere abbastanza esperto." CR>)>>
 
 <ROUTINE V-MOVE ()
 	 <COND (<FSET? ,PRSO ,TAKEBIT>
 		<TELL "Spostare " D ,PRSO " non rivela nulla." CR>)
 	       (T
-		<TELL "You can't move the " D ,PRSO "." CR>)>>
+		<TELL "Non puoi spostare " D ,PRSO "." CR>)>>
 
 <ROUTINE V-MUMBLE ()
 	 <TELL "You'll have to speak up if you expect me to hear you!" CR>>
@@ -966,7 +966,7 @@ by knocking down the wall on the east of the room." CR>
 		<TELL "Wasn't he a sailor?" CR>)>>
 
 <ROUTINE V-OIL ()
-	 <TELL "You probably put spinach in your gas tank, too." CR>>
+	 <TELL "Probabilmente hai messo gli spinaci anche nel serbatoio della benzina." CR>>
 
 <ROUTINE V-OPEN ("AUX" F STR)
 	 <COND (<AND <FSET? ,PRSO ,CONTBIT>
@@ -1013,7 +1013,7 @@ by knocking down the wall on the east of the room." CR>
 	       (T
 		<TELL "Huh?" CR>)>>
 
-<ROUTINE V-PICK () <TELL "You can't pick that." CR>>
+<ROUTINE V-PICK () <TELL "Non puoi raccogliere quello." CR>>
 
 <ROUTINE V-PLAY ()
     <COND (<FSET? ,PRSO ,ACTORBIT>
@@ -1030,7 +1030,7 @@ you kill yourself, just as he might have done!" CR>
 	 <COND (<EQUAL? ,PRSO ,WATER>
 		<REMOVE-CAREFULLY ,PRSO>
 	        <COND (<FLAMING? ,PRSI>
-		       <TELL "The " D ,PRSI " is extinguished." CR>
+		       <TELL "Il " D ,PRSI " si spegne." CR>
 		       %<COND (<==? ,ZORK-NUMBER 2>
 			       '<COND (<EQUAL? ,PRSI ,BINF-FLAG>
 				       <SETG BINF-FLAG <>>)>)
@@ -1039,14 +1039,14 @@ you kill yourself, just as he might have done!" CR>
 		       <FCLEAR ,PRSI ,FLAMEBIT>)
 	              (T
 		       <TELL
-"The water spills over the " D ,PRSI ", to the floor, and evaporates." CR>)>)
+"L'acqua trabocca da " D ,PRSI ", to the floor, and evaporates." CR>)>)
 	       %<COND (<==? ,ZORK-NUMBER 1>
 		       '(<EQUAL? ,PRSO ,PUTTY>
 			 <PERFORM ,V?PUT ,PUTTY ,PRSI>))
 		      (T
 		       '(<NULL-F> <RTRUE>))>
 	       (T
-		<TELL "You can't pour that." CR>)>>
+		<TELL "Non puoi versare quello." CR>)>>
 
 <ROUTINE V-PRAY ()
 	 <COND %<COND (<==? ,ZORK-NUMBER 1>
@@ -1075,7 +1075,7 @@ you kill yourself, just as he might have done!" CR>
 <ROUTINE V-PUSH () <HACK-HACK "Pushing the ">>
 
 <ROUTINE V-PUSH-TO ()
-	 <TELL "You can't push things to that." CR>>
+	 <TELL "Non puoi spingere oggetti fin lì." CR>>
 
 <ROUTINE PRE-PUT ()
 	 <COND %<COND (<==? ,ZORK-NUMBER 3>
@@ -1092,22 +1092,22 @@ you kill yourself, just as he might have done!" CR>
 		    <OPENABLE? ,PRSI>
 		    <FSET? ,PRSI ,VEHBIT>>)
 	       (T
-		<TELL "You can't do that." CR>
+		<TELL "Non puoi farlo." CR>
 		<RTRUE>)>
 	 <COND (<NOT <FSET? ,PRSI ,OPENBIT>>
-		<TELL "The " D ,PRSI " isn't open." CR>
+		<TELL "Il " D ,PRSI " non è aperto." CR>
 		<THIS-IS-IT ,PRSI>)
 	       (<EQUAL? ,PRSI ,PRSO>
 		<TELL "How can you do that?" CR>)
 	       (<IN? ,PRSO ,PRSI>
-		<TELL "The " D ,PRSO " is already in the " D ,PRSI "." CR>)
+		<TELL "Il " D ,PRSO " è già dentro " D ,PRSI "." CR>)
 	       (<G? <- <+ <WEIGHT ,PRSI> <WEIGHT ,PRSO>>
 		       <GETP ,PRSI ,P?SIZE>>
 		    <GETP ,PRSI ,P?CAPACITY>>
 		<TELL "There's no room." CR>)
 	       (<AND <NOT <HELD? ,PRSO>>
 		     <FSET? ,PRSO ,TRYTAKEBIT>>
-		<TELL "You don't have the " D ,PRSO "." CR>
+		<TELL "Non hai " D ,PRSO "." CR>
 		<RTRUE>)
 	       (<AND <NOT <HELD? ,PRSO>>
 		     <NOT <ITAKE>>>
@@ -1131,7 +1131,7 @@ you kill yourself, just as he might have done!" CR>
 		<TELL "There's no good surface on the " D ,PRSI "." CR>)>>
 
 <ROUTINE V-PUT-UNDER ()
-	 <TELL "You can't do that." CR>>
+	 <TELL "Non puoi farlo." CR>>
 
 <ROUTINE V-RAISE ()
 	 <V-LOWER>>
@@ -1517,7 +1517,7 @@ CR>)
 	 <TELL "This cannot be tied, so it cannot be untied!" CR>>
 
 <ROUTINE V-WAIT ("OPTIONAL" (NUM 3))
-	 <TELL "Time passes..." CR>
+	 <TELL "Il tempo passa..." CR>
 	 <REPEAT ()
 		 <COND (<L? <SET NUM <- .NUM 1>> 0> <RETURN>)
 		       (<CLOCKER> <RETURN>)>>
