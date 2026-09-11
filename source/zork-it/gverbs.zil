@@ -899,7 +899,7 @@ D ,PRSO " è aperto, ma non riesco a vedere cosa ci sia oltre.">)
 		<PERFORM ,V?LOOK-INSIDE ,PRSO>
 		<RTRUE>)
 	       (T
-		<TELL "Look on a " D ,PRSO "???" CR>)>>
+		<TELL "Guardare su " D ,PRSO "???" CR>)>>
 
 <ROUTINE V-LOOK-UNDER ()
 	 <TELL "Lì non c'è altro che polvere." CR>>
@@ -918,7 +918,7 @@ D ,PRSO " è aperto, ma non riesco a vedere cosa ci sia oltre.">)
 
 <ROUTINE V-MOVE ()
 	 <COND (<FSET? ,PRSO ,TAKEBIT>
-		<TELL "Moving the " D ,PRSO " reveals nothing." CR>)
+		<TELL "Spostare " D ,PRSO " non rivela nulla." CR>)
 	       (T
 		<TELL "You can't move the " D ,PRSO "." CR>)>>
 
@@ -1024,7 +1024,7 @@ you kill yourself, just as he might have done!" CR>
 	  (ELSE <TELL "That's silly!" CR>)>>
 
 <ROUTINE V-PLUG ()
-	 <TELL "This has no effect." CR>>
+	 <TELL "Questo non ha alcun effetto." CR>>
 
 <ROUTINE V-POUR-ON ()
 	 <COND (<EQUAL? ,PRSO ,WATER>
@@ -1141,9 +1141,9 @@ you kill yourself, just as he might have done!" CR>
 
 <ROUTINE PRE-READ ()
 	 <COND (<NOT ,LIT>
-		<TELL "It is impossible to read in the dark." CR>)
+		<TELL "È impossibile leggere al buio." CR>)
 	       (<AND ,PRSI <NOT <FSET? ,PRSI ,TRANSBIT>>>
-		<TELL "How does one look through a " D ,PRSI "?" CR>)>>
+		<TELL "Come si guarda attraverso " D ,PRSI "?" CR>)>>
 
 <ROUTINE V-READ ()
 	 <COND (<NOT <FSET? ,PRSO ,READBIT>>
@@ -1377,17 +1377,17 @@ D ,PRSO " con weapon." CR>)
 		       (ELSE
 			'<NULL-F>)>
 		<COND (<NOT <EQUAL? ,PRSI <LOC ,PRSO>>>
-		       <TELL "The " D ,PRSO " isn't in the " D ,PRSI "." CR>)
+		       <TELL "Il " D ,PRSO " non è dentro " D ,PRSI "." CR>)
 		      (T
 		       <SETG PRSI <>>
 		       <RFALSE>)>)
 	       (<EQUAL? ,PRSO <LOC ,WINNER>>
-		<TELL "You're inside of it!" CR>)>>
+		<TELL "Sei dentro!" CR>)>>
 
 <ROUTINE V-TAKE ()
 	 <COND (<EQUAL? <ITAKE> T>
 		<COND (<FSET? ,PRSO ,WEARBIT>
-		       <TELL "You are now wearing the " D ,PRSO "." CR>)
+		       <TELL "Ora indossi " D ,PRSO "." CR>)
 		      (T
 		       <TELL "Preso." CR>)>)>>
 
@@ -1398,10 +1398,10 @@ D ,PRSO " con weapon." CR>)
 		       <SETG HERE <LOC ,WINNER>>)
 		      (T
 		       <TELL "The " D ,PRSO
-" pauses for a moment, perhaps thinking that you should reread
-the manual." CR>)>)
+" si ferma per un momento, forse pensando che dovresti rileggere
+il manuale." CR>)>)
 	       (T
-		<TELL "You can't talk to the " D ,PRSO "!" CR>
+		<TELL "Non puoi parlare con " D ,PRSO "!" CR>
 		<SETG QUOTE-FLAG <>>
 		<SETG P-CONT <>>
 		<RFATAL>)>>
@@ -1503,12 +1503,12 @@ CR>)
 			      <NOT <EQUAL? ,PRSO ,BOOK>>>)
 		       (ELSE
 			'<EQUAL? ,PRSI <> ,ROOMS>)>
-		<TELL "Your bare hands don't appear to be enough." CR>)
+		<TELL "Le tue mani nude non sembrano sufficienti." CR>)
 	       (<NOT <FSET? ,PRSO ,TURNBIT>>
 		<TELL "You can't turn that!" CR>)>>
 
 <ROUTINE V-TURN ()
-	 <TELL "This has no effect." CR>>
+	 <TELL "Questo non ha alcun effetto." CR>>
 
 <ROUTINE V-UNLOCK ()
 	 <V-LOCK>>
@@ -1559,7 +1559,7 @@ CR>)
 			      <TELL .STR CR>
 			      <RFATAL>)
 			     (T
-			      <TELL "The " D .OBJ " is closed." CR>
+			      <TELL "Il " D .OBJ " è chiuso." CR>
 			      <THIS-IS-IT .OBJ>
 			      <RFATAL>)>)>)
 	       (<AND <NOT ,LIT>
@@ -1586,15 +1586,15 @@ direction." CR>
 		<RFATAL>)>>
 
 <ROUTINE V-WALK-AROUND ()
-	 <TELL "Use compass directions for movement." CR>>
+	 <TELL "Usa i punti cardinali per muoverti." CR>>
 
 <ROUTINE V-WALK-TO ()
 	 <COND (<AND ,PRSO
 		     <OR <IN? ,PRSO ,HERE>
 			 <GLOBAL-IN? ,PRSO ,HERE>>>
-		<TELL "It's here!" CR>)
+		<TELL "È qui!" CR>)
 	       (T
-		<TELL "You should supply a direction!" CR>)>>
+		<TELL "Devi specificare una direzione!" CR>)>>
 
 <ROUTINE V-WAVE ()
 	 <HACK-HACK "Waving the ">>
