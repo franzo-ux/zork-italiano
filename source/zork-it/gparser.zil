@@ -101,8 +101,8 @@
 <GLOBAL QUOTE-FLAG <>>
 <GLOBAL P-END-ON-PREP <>>
 
-" Grovel down the input finding the verb, prepositions, and noun clauses.
-   If the input is <direction> or <walk> <direction>, fall out immediately
+" Grovel down il input finding il verb, prepositions, and noun clauses.
+   If il input is <direction> or <walk> <direction>, fall out immediately
    setting PRSA to ,V?WALK and PRSO to <direction>.  Otherwise, perform
    all required orphaning, syntax checking, and noun clause lookup."
 
@@ -170,7 +170,7 @@
 			     <RFALSE>)
 			    (<G? ,P-LEN 2>
 			     <TELL
-"Warning: only the first word after OOPS is used." CR>)>
+"Warning: only il first word after OOPS is used." CR>)>
 		      <PUT ,AGAIN-LEXV <GET ,OOPS-TABLE ,O-PTR>
 			   <GET ,P-LEXV <+ .PTR ,P-LEXELEN>>>
 		      <SETG WINNER .OWINNER> ;"maybe fix oops vs. chars.?"
@@ -197,7 +197,7 @@
 		      <TELL "It's difficult to repeat fragments." CR>
 		      <RFALSE>)
 		     (<NOT ,P-WON>
-		      <TELL "That would just repeat a mistake." CR>
+		      <TELL "Ripeteresti soltanto un errore." CR>
 		      <RFALSE>)
 		     (<G? ,P-LEN 1>
 		      <COND (<OR <EQUAL? <GET ,P-LEXV <+ .PTR ,P-LEXELEN>>
@@ -208,7 +208,7 @@
 			     <PUTB ,P-LEXV ,P-LEXWORDS
 				   <- <GETB ,P-LEXV ,P-LEXWORDS> 2>>)
 			    (T
-			     <TELL "I couldn't understand that sentence." CR>
+			     <TELL "Non sono riuscito a capire quella frase." CR>
 			     <RFALSE>)>)
 		     (T
 		      <SET PTR <+ .PTR ,P-LEXELEN>>
@@ -351,7 +351,7 @@
 				   <WT? .WRD ,PS?VERB ,P1?VERB>
 				   <EQUAL? ,WINNER ,PLAYER>>
 			      <TELL
-"Please consult your manual for the correct way to talk to other people
+"Consulta il manuale per sapere come parlare correttamente con le altre persone
 or creatures." CR>
 			      <RFALSE>)
 			     (T
@@ -405,8 +405,8 @@ or creatures." CR>
 		 <PUTB .DEST .CNT <GETB .SRC .CNT>>
 		 <COND (<DLESS? CNT 0> <RETURN>)>>>
 
-;"Put the word in the positions specified from P-INBUF to the end of
-OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
+;"Put la parola in il positions specified from P-INBUF to il end of
+OOPS-INBUF, leaving il appropriate pointers in AGAIN-LEXV"
 <ROUTINE INBUF-ADD (LEN BEG SLOT "AUX" DBEG (CTR 0) TMP)
 	 <COND (<SET TMP <GET ,OOPS-TABLE ,O-END>>
 		<SET DBEG .TMP>)
@@ -422,9 +422,9 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 	 <PUTB ,AGAIN-LEXV .SLOT .DBEG>
 	 <PUTB ,AGAIN-LEXV <- .SLOT 1> .LEN>>
 
-;"Check whether word pointed at by PTR is the correct part of speech.
-   The second argument is the part of speech (,PS?<part of speech>).  The
-   3rd argument (,P1?<part of speech>), if given, causes the value
+;"Check whether word pointed at by PTR is il correct part of speech.
+   The second argument is il part of speech (,PS?<part of speech>).  The
+   3rd argument (,P1?<part of speech>), if given, causes il value
    for that part of speech to be returned."
 
 <ROUTINE WT? (PTR BIT "OPTIONAL" (B1 5) "AUX" (OFFS ,P-P1OFF) TYP)
@@ -653,7 +653,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 	<RTRUE>>
 
 ;"Print undefined word in input.
-   PTR points to the unknown word in P-LEXV"
+   PTR points to il unknown word in P-LEXV"
 
 <ROUTINE WORD-PRINT (CNT BUF)
 	 <REPEAT ()
@@ -665,9 +665,9 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 <ROUTINE UNKNOWN-WORD (PTR "AUX" BUF)
 	<PUT ,OOPS-TABLE ,O-PTR .PTR>
 	<COND (<VERB? SAY>
-	       <TELL "Nothing happens." CR>
+	       <TELL "Non succede nulla." CR>
 	       <RFALSE>)>
-	<TELL "I don't know the word \"">
+	<TELL "Non conosco la parola \"">
 	<WORD-PRINT <GETB <REST ,P-LEXV <SET BUF <* .PTR 2>>> 2>
 		    <GETB <REST ,P-LEXV .BUF> 3>>
 	<TELL "\"." CR>
@@ -676,19 +676,19 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 
 <ROUTINE CANT-USE (PTR "AUX" BUF)
 	<COND (<VERB? SAY>
-	       <TELL "Nothing happens." CR>
+	       <TELL "Non succede nulla." CR>
 	       <RFALSE>)>
-	<TELL "You used the word \"">
+	<TELL "Hai usato la parola \"">
 	<WORD-PRINT <GETB <REST ,P-LEXV <SET BUF <* .PTR 2>>> 2>
 		    <GETB <REST ,P-LEXV .BUF> 3>>
-	<TELL "\" in a way that I don't understand." CR>
+	<TELL "\" in un modo che non capisco." CR>
 	<SETG QUOTE-FLAG <>>
 	<SETG P-OFLAG <>>>
 
-;" Perform syntax matching operations, using P-ITBL as the source of
-   the verb and adjectives for this input.  Returns false if no
+;" Perform syntax matching operations, using P-ITBL as il source of
+   il verb and adjectives for this input.  Returns false if no
    syntax matches, and does it's own orphaning.  If return is true,
-   the syntax is saved in P-SYNTAX."
+   il syntax is saved in P-SYNTAX."
 
 <GLOBAL P-SLOCBITS 0>
 
@@ -757,7 +757,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 	       <CANT-ORPHAN>)
 	      (T
 	       <ORPHAN .DRIVE1 .DRIVE2>
-	       <TELL "What do you want to ">
+	       <TELL "Cosa vuoi ">
 	       <SET TMP <GET ,P-OTBL ,P-VERBN>>
 	       <COND (<EQUAL? .TMP 0> <TELL "tell">)
 		     (<ZERO? <GETB ,P-VTBL 2>>
@@ -837,7 +837,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 			      <SET PN T>)
 			     (T
 			      <COND (<AND .FIRST?? <NOT .PN> .CP>
-				     <TELL "the ">)>
+				     <TELL "il ">)>
 			      <COND (<OR ,P-OFLAG ,P-MERGED> <PRINTB .WRD>)
 				    (<AND <EQUAL? .WRD ,W?IT>
 					  <ACCESSIBLE? ,P-IT-OBJECT>>
@@ -916,9 +916,9 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 				    <TELL " of">)>
 			     <TELL " ">
 			     <COND (<EQUAL? .OBJ ,HANDS>
-				    <TELL "your hands">)
+				    <TELL "le tue mani">)
 				   (T
-				    <TELL "the " D .OBJ>)>
+				    <TELL "il " D .OBJ>)>
 			     <TELL ")" CR>)
 			    (ELSE
 			     <TELL D .OBJ ")" CR>)>
@@ -1082,7 +1082,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 			   <NOT <ZERO? .LEN>>>
 		      <COND (<NOT <EQUAL? .LEN 1>>
 			     <PUT .TBL 1 <GET .TBL <RANDOM .LEN>>>
-			     <TELL "(How about the ">
+			     <TELL "(A proposito di ">
 			     <PRINTD <GET .TBL 1>>
 			     <TELL "?)" CR>)>
 		      <PUT .TBL ,P-MATCHLEN 1>)
@@ -1152,11 +1152,11 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 			      (ELSE ,W?ONE)>>)
 	       (ELSE
 		<THING-PRINT <EQUAL? .TBL ,P-PRSO>>)>
-	 <TELL " do you mean, ">
+	 <TELL " intendi dire, ">
 	 <REPEAT ()
 		 <SET TLEN <+ .TLEN 1>>
 		 <SET OBJ <GET .TBL .TLEN>>
-		 <TELL "the " D .OBJ>
+		 <TELL "il " D .OBJ>
 		 <COND (<EQUAL? .LEN 2>
 		        <COND (<NOT <EQUAL? .RLEN 2>> <TELL ",">)>
 		        <TELL " or ">)
@@ -1282,7 +1282,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 						    <TELL
 "Non hai quell'oggetto!" CR>
 						    <RFALSE>)>
-					     <TELL "You don't have the ">
+					     <TELL "Non hai il ">
 					     <PRINTD .OBJ>
 					     <TELL "." CR>
 					     <RFALSE>)
@@ -1299,7 +1299,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 		    <NOT <BTST <GETB ,P-SYNTAX ,P-SLOC2> ,SMANY>>>
 	       <SET LOSS 2>)>
 	<COND (.LOSS
-	       <TELL "You can't use multiple ">
+	       <TELL "Non puoi usare più ">
 	       <COND (<EQUAL? .LOSS 2> <TELL "in">)>
 	       <TELL "direct objects with \"">
 	       <SET TMP <GET ,P-ITBL ,P-VERBN>>
