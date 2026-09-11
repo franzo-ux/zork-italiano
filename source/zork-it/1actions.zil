@@ -64,35 +64,35 @@ to brush them with." CR>)
 <ROUTINE GRANITE-WALL-F ()
 	 <COND (<EQUAL? ,HERE ,NORTH-TEMPLE>
 		<COND (<VERB? FIND>
-		       <TELL "The west wall is solid granite here." CR>)
+		       <TELL "Qui la parete ovest è di granito massiccio." CR>)
 		      (<VERB? TAKE RAISE LOWER>
 		       <TELL "It's solid granite." CR>)>)
 	       (<EQUAL? ,HERE ,TREASURE-ROOM>
 		<COND (<VERB? FIND>
-		       <TELL "The east wall is solid granite here." CR>)
+		       <TELL "Qui la parete est è di granito massiccio." CR>)
 		      (<VERB? TAKE RAISE LOWER>
 		       <TELL "It's solid granite." CR>)>)
 	       (<EQUAL? ,HERE ,SLIDE-ROOM>
 		<COND (<VERB? FIND READ>
-		       <TELL "It only SAYS \"Granite Wall\"." CR>)
-		      (T <TELL "The wall isn't granite." CR>)>)
+		       <TELL "C'è scritto soltanto \"Parete di granito\"." CR>)
+		      (T <TELL "La parete non è di granito." CR>)>)
 	       (T
-		<TELL "There is no granite wall here." CR>)>>
+		<TELL "Qui non c'è nessuna parete di granito." CR>)>>
 
 <ROUTINE SONGBIRD-F ()
 	 <COND (<VERB? FIND TAKE>
-		<TELL "The songbird is not here but is probably nearby." CR>)
+		<TELL "L'uccello canoro non è qui, ma probabilmente è nei paraggi." CR>)
 	       (<VERB? LISTEN>
-		<TELL "You can't hear the songbird now." CR>)
+		<TELL "Adesso non riesci a sentire l'uccello canoro." CR>)
 	       (<VERB? FOLLOW>
-		<TELL "It can't be followed." CR>)
+		<TELL "Non puoi seguirlo." CR>)
 	       (T
-		<TELL "You can't see any songbird here." CR>)>>
+		<TELL "Qui non riesci a vedere nessun uccello canoro." CR>)>>
 
 <ROUTINE WHITE-HOUSE-F ()
     <COND (<EQUAL? ,HERE ,KITCHEN ,LIVING-ROOM ,ATTIC>
 	   <COND (<VERB? FIND>
-		  <TELL "Why not find your brains?" CR>)
+		  <TELL "Perché non cerchi il tuo cervello?" CR>)
 		 (<VERB? WALK-AROUND>
 		  <GO-NEXT ,IN-HOUSE-AROUND>
 		  T)>)
@@ -100,13 +100,13 @@ to brush them with." CR>)
 		    <EQUAL? ,HERE ,NORTH-OF-HOUSE ,SOUTH-OF-HOUSE>>>
 	   <COND (<VERB? FIND>
 		  <COND (<EQUAL? ,HERE ,CLEARING>
-			 <TELL "It seems to be to the west." CR>)
+			 <TELL "Sembra trovarsi a ovest." CR>)
 			(T
-			 <TELL "It was here just a minute ago...." CR>)>)
-		 (T <TELL "You're not at the house." CR>)>)
+			 <TELL "Era qui solo un attimo fa..." CR>)>)
+		 (T <TELL "Non sei vicino alla casa." CR>)>)
 	  (<VERB? FIND>
 	   <TELL
-"It's right here! Are you blind or something?" CR>)
+"È proprio qui! Sei forse cieco?" CR>)
 	  (<VERB? WALK-AROUND>
 	   <GO-NEXT ,HOUSE-AROUND>
 	   T)
@@ -124,7 +124,7 @@ to brush them with." CR>)
 		 (T
 		  <TELL "Da qui non vedo come entrare." CR>)>)
 	  (<VERB? BURN>
-	   <TELL "You must be joking." CR>)>>
+	   <TELL "Stai scherzando, vero?" CR>)>>
 
 ;"0 -> no next, 1 -> success, 2 -> failed move"
 
@@ -184,23 +184,23 @@ to brush them with." CR>)
 			    <OR <EQUAL? .AV ,PRSI>
 				<AND <NOT ,PRSI>
 				     <NOT <IN? .W .AV>>>>>
-		       <TELL "There is now a puddle in the bottom of the "
+		       <TELL "Ora c'è una pozzanghera sul fondo del "
 			     D .AV "." CR>
 		       <REMOVE-CAREFULLY ,PRSO>
 		       <MOVE ,PRSO .AV>)
 		      (<AND ,PRSI <NOT <EQUAL? ,PRSI ,BOTTLE>>>
-		       <TELL "The water leaks out of the " D ,PRSI
+		       <TELL "L'acqua fuoriesce dal " D ,PRSI
 			     " and evaporates immediately." CR>
 		       <REMOVE-CAREFULLY .W>)
 		      (<IN? ,BOTTLE ,WINNER>
 		       <COND (<NOT <FSET? ,BOTTLE ,OPENBIT>>
-			      <TELL "The bottle is closed." CR>
+			      <TELL "La bottiglia è chiusa." CR>
 			      <THIS-IS-IT ,BOTTLE>)
 			     (<NOT <FIRST? ,BOTTLE>>
 			      <MOVE ,WATER ,BOTTLE>
-			      <TELL "The bottle is now full of water." CR>)
+			      <TELL "Ora la bottiglia è piena d'acqua." CR>)
 			     (T
-			      <TELL "The water slips through your fingers." CR>
+			      <TELL "L'acqua scivola tra le dita." CR>
 			      <RTRUE>)>)
 		      (<AND <IN? ,PRSO ,BOTTLE>
 			    <VERB? TAKE>
@@ -208,32 +208,32 @@ to brush them with." CR>)
 		       <TELL
 "It's in the bottle. Perhaps you should take that instead." CR>)
 		      (T
-		       <TELL "The water slips through your fingers." CR>)>)
+		       <TELL "L'acqua scivola tra le dita." CR>)>)
 	       (.PI?
 		<COND (<AND <VERB? PUT>
 			    <GLOBAL-IN? ,RIVER ,HERE>>
 		       <PERFORM ,V?PUT ,PRSO ,RIVER>)
 		      (ELSE
-		       <TELL "Nice try." CR>)>
+		       <TELL "Bel tentativo." CR>)>
 		<RTRUE>)
 	       (<VERB? DROP GIVE>
 		<COND (<AND <VERB? DROP>
 			    <IN? ,WATER ,BOTTLE>
 			    <NOT <FSET? ,BOTTLE ,OPENBIT>>>
-		       <TELL "The bottle is closed." CR>
+		       <TELL "La bottiglia è chiusa." CR>
 		       <RTRUE>)>
 		<REMOVE-CAREFULLY ,WATER>
 		<COND (.AV
-		       <TELL "There is now a puddle in the bottom of the "
+		       <TELL "Ora c'è una pozzanghera sul fondo del "
 			     D .AV "." CR>
 		       <MOVE ,WATER .AV>)
 		      (T
 		       <TELL
-"The water spills to the floor and evaporates immediately." CR>
+"L'acqua cade sul pavimento ed evapora immediatamente." CR>
 		       <REMOVE-CAREFULLY ,WATER>)>)
 	       (<VERB? THROW>
 		<TELL
-"The water splashes on the walls and evaporates immediately." CR>
+"L'acqua schizza sulle pareti ed evapora immediatamente." CR>
 		<REMOVE-CAREFULLY ,WATER>)>>
 
 <GLOBAL KITCHEN-WINDOW-FLAG <>>
@@ -263,14 +263,14 @@ to brush them with." CR>)
 
 <ROUTINE GHOSTS-F ()
 	 <COND (<VERB? TELL>
-		<TELL "The spirits jeer loudly and ignore you." CR>
+		<TELL "Gli spiriti ti deridono rumorosamente e ti ignorano." CR>
 		<SETG P-CONT <>>)
 	       (<VERB? EXORCISE>
-		<TELL "Only the ceremony itself has any effect." CR>)
+		<TELL "Solo la cerimonia in sé ha qualche effetto." CR>)
 	       (<AND <VERB? ATTACK MUNG> <EQUAL? ,PRSO ,GHOSTS>>
-		<TELL "How can you attack a spirit with material objects?" CR>)
+		<TELL "Come puoi attaccare uno spirito con oggetti materiali?" CR>)
 	       (T
-		<TELL "You seem unable to interact with these spirits." CR>)>>
+		<TELL "Sembra che tu non riesca a interagire con questi spiriti." CR>)>>
 
 <GLOBAL CAGE-TOP T>
 
@@ -284,7 +284,7 @@ to brush them with." CR>)
 		       <SETG CAGE-TOP T>
 		       <THIS-IS-IT ,RAISED-BASKET>
 		       <TELL
-"The basket is raised to the top of the shaft." CR>)>)
+"Il cestello sale in cima al pozzo." CR>)>)
 	       (<VERB? LOWER>
 		<COND (<NOT ,CAGE-TOP>
 		       <TELL <PICK-ONE ,DUMMY> CR>)
@@ -293,17 +293,17 @@ to brush them with." CR>)
 		       <MOVE ,LOWERED-BASKET ,SHAFT-ROOM>
 		       <THIS-IS-IT ,LOWERED-BASKET>
 		       <TELL
-"The basket is lowered to the bottom of the shaft." CR>
+"Il cestello scende in fondo al pozzo." CR>
 		       <SETG CAGE-TOP <>>
 		       <COND (<AND ,LIT <NOT <SETG LIT <LIT? ,HERE>>>>
-			      <TELL "It is now pitch black." CR>)>
+			      <TELL "Ora è buio pesto." CR>)>
 		       T)>)
 	       (<OR <EQUAL? ,PRSO ,LOWERED-BASKET>
 		    <EQUAL? ,PRSI ,LOWERED-BASKET>>
-		<TELL "The basket is at the other end of the chain." CR>)
+		<TELL "Il cestello è all'altra estremità della catena." CR>)
 	       (<AND <VERB? TAKE>
 		     <EQUAL? ,PRSO ,RAISED-BASKET ,LOWERED-BASKET>>
-		<TELL "The cage is securely fastened to the iron chain." CR>)>>
+		<TELL "La gabbia è fissata saldamente alla catena di ferro." CR>)>>
 
 <ROUTINE BAT-F ()
 	 <COND (<VERB? TELL>
@@ -311,7 +311,7 @@ to brush them with." CR>)
 		<SETG P-CONT <>>)
 	       (<VERB? TAKE ATTACK MUNG>
 		<COND (<EQUAL? <LOC ,GARLIC> ,WINNER ,HERE>
-		       <TELL "You can't reach him; he's on the ceiling." CR>)
+		       <TELL "Non riesci a raggiungerlo: è sul soffitto." CR>)
 		      (T <FLY-ME>)>)>>
 
 <ROUTINE FLY-ME ()
