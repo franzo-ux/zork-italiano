@@ -397,7 +397,7 @@ a est c'è una piccola finestra che è ">
 	       <COND (<AND <VERB? CLIMB-UP> <EQUAL? ,PRSO ,STAIRS>>
 		      <DO-WALK ,P?UP>)
 		     (<AND <VERB? CLIMB-UP> <EQUAL? ,PRSO ,STAIRS>>
-		      <TELL "There are no stairs leading down." CR>)>)>>
+		      <TELL "Non ci sono scale che scendono." CR>)>)>>
 
 <ROUTINE STONE-BARROW-FCN (RARG)
 	 <COND (<AND <EQUAL? .RARG ,M-BEG>
@@ -407,19 +407,18 @@ a est c'è una piccola finestra che è ">
 			 <AND <VERB? THROUGH>
 			      <EQUAL? ,PRSO ,BARROW>>>>
 		<TELL
-"Inside the Barrow|
-As you enter the barrow, the door closes inexorably behind you. Around
-you it is dark, but ahead is an enormous cavern, brightly lit. Through
-its center runs a wide stream. Spanning the stream is a small wooden
-footbridge, and beyond a path leads into a dark tunnel. Above the
-bridge, floating in the air, is a large sign. It reads:  All ye who
-stand before this bridge have completed a great and perilous adventure
-which has tested your wit and courage. You have mastered">
+"Dentro il tumulo|
+Entrando nel tumulo, la porta si chiude inesorabilmente alle tue spalle. Intorno
+a te è buio, ma davanti si apre un'enorme caverna ben illuminata. Al centro
+scorre un largo torrente. Un piccolo ponte pedonale di legno attraversa il
+torrente e oltre il ponte un sentiero conduce in un tunnel buio. Sopra il
+ponte, sospeso nell'aria, c'è un grande cartello. Vi si legge: Voi che state
+davanti a questo ponte avete portato a termine una grande e pericolosa
+avventura che ha messo alla prova ingegno e coraggio. Avete dominato">
 		<COND (<EQUAL? <BAND <GETB 0 1> 8> 0>
 		       <TELL "
-the first part of the ZORK trilogy. Those who pass over this bridge must be
-prepared to undertake an even greater adventure that will severely test your
-skill and bravery!|
+la prima parte della trilogia di ZORK. Chi attraversa questo ponte deve essere
+pronto ad affrontare un'avventura ancora più grande, che metterà a dura prova\ abilità e coraggio!|
 |
 The ZORK trilogy continues with \"ZORK II: The Wizard of Frobozz\" and
 is completed in \"ZORK III: The Dungeon Master.\"" CR>)
@@ -430,7 +429,7 @@ ZORK: The Great Underground Empire.|" CR>)>
 
 <ROUTINE BARROW-DOOR-FCN ()
 	 <COND (<VERB? OPEN CLOSE>
-		<TELL "The door is too heavy." CR>)>>
+		<TELL "La porta è troppo pesante." CR>)>>
 
 <ROUTINE BARROW-FCN ()
 	 <COND (<VERB? THROUGH>
@@ -441,7 +440,7 @@ ZORK: The Great Underground Empire.|" CR>)>
 <ROUTINE TROPHY-CASE-FCN ()
     <COND (<AND <VERB? TAKE> <EQUAL? ,PRSO ,TROPHY-CASE>>
 	   <TELL
-"The trophy case is securely fastened to the wall." CR>)>>
+"La vetrina dei trofei è fissata saldamente alla parete." CR>)>>
 	
 <GLOBAL RUG-MOVED <>>
 
@@ -451,9 +450,7 @@ ZORK: The Great Underground Empire.|" CR>)>
 "Sei nel soggiorno. A est c'è un passaggio">
 	       <COND (,MAGIC-FLAG
 		      <TELL
-". To the
-west is a cyclops-shaped opening in an old wooden door, above which is
-some strange gothic lettering, ">)
+". A ovest c'è un'apertura a forma di ciclope in una vecchia porta di legno, sopra la quale\sono incise strane lettere gotiche: ">)
 		     (T
 		      <TELL
 ", a wooden
@@ -507,23 +504,22 @@ nailed shut, ">)>
 	  (<AND <VERB? OPEN CLOSE>
 		<EQUAL? ,HERE ,LIVING-ROOM>>
 	   <OPEN-CLOSE ,PRSO
-"The door reluctantly opens to reveal a rickety staircase descending into
-darkness."
-"The door swings shut and closes.">)
+"La porta si apre a malincuore, rivelando una scala malferma che scende nel uio."
+"La porta si richiude con un cigolio.">)
 	  (<AND <VERB? LOOK-UNDER> <EQUAL? ,HERE LIVING-ROOM>>
 	   <COND (<FSET? ,TRAP-DOOR ,OPENBIT>
 		  <TELL
-"You see a rickety staircase descending into darkness." CR>)
+"Vedi una scala malferma che scende nel buio." CR>)
 		 (T <TELL "It's closed." CR>)>)
 	  (<EQUAL? ,HERE ,CELLAR>
 	   <COND (<AND <VERB? OPEN UNLOCK>
 		       <NOT <FSET? ,TRAP-DOOR ,OPENBIT>>>
 		  <TELL
-"The door is locked from above." CR>)
+"La porta è chiusa a chiave dall'alto." CR>)
 		 (<AND <VERB? CLOSE> <NOT <FSET? ,TRAP-DOOR ,OPENBIT>>>
 		  <FCLEAR ,TRAP-DOOR ,TOUCHBIT>
 		  <FCLEAR ,TRAP-DOOR ,OPENBIT>
-		  <TELL "The door closes and locks." CR>)
+		  <TELL "La porta si chiude a chiave." CR>)
 		 (<VERB? OPEN CLOSE>
 		  <TELL <PICK-ONE ,DUMMY> CR>)>)>>
 
@@ -572,7 +568,7 @@ steep metal ramp which is unclimbable." CR>)
 		       <THIS-IS-IT ,TRAP-DOOR>
 		       <RFALSE>)>)
 	       (T
-		<TELL "You can't go that way." CR>
+		<TELL "Non puoi andare da quella parte." CR>
 		<RFALSE>)>>
 
 <ROUTINE RUG-FCN ()
