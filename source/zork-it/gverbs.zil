@@ -133,7 +133,7 @@ Release ">
 
 <ROUTINE V-RANDOM ()
 	 <COND (<NOT <EQUAL? ,PRSO ,INTNUM>>
-		<TELL "Illegal call to #RND." CR>)
+		<TELL "Chiamata illegale a #RND." CR>)
 	       (T
 		<RANDOM <- 0 ,P-NUMBER>>
 		<RTRUE>)>>
@@ -151,7 +151,7 @@ Release ">
 "Real Verb Functions"
 
 <ROUTINE V-ADVENT ()
-	 <TELL "A hollow voice says \"Fool.\"" CR>>
+	 <TELL "Una voce cavernosa dice: \"Sciocco.\"" CR>>
 
 <ROUTINE V-ALARM ()
 	 <COND (<FSET? ,PRSO ,ACTORBIT>
@@ -185,7 +185,7 @@ Release ">
 		<TELL "Non stai nemmeno tenendo " D ,PRSI "." CR>)
 	       (<NOT <FSET? ,PRSI ,WEAPONBIT>>
 		<TELL
-"Trying to attack the " D ,PRSO " con " D ,PRSI " è suicida." CR>)
+"Attaccare " D ,PRSO " con " D ,PRSI " è suicida." CR>)
 	       (T
 	        %<COND (<==? ,ZORK-NUMBER 1>
 			'<HERO-BLOW>)
@@ -263,18 +263,18 @@ Release ">
 		       <TELL
 " catches fire. Unfortunately, you were ">
 		       <COND (<IN? ,WINNER ,PRSO>
-			      <TELL "in">)
-			     (T <TELL "holding">)>
+			      <TELL "dentro">)
+			     (T <TELL "tenendo l'oggetto">)>
 		       <JIGS-UP " it at the time.">)
 		      (T
 		       <REMOVE-CAREFULLY ,PRSO>
 		       <TELL
-"The " D ,PRSO " catches fire and is consumed." CR>)>)
+"The " D ,PRSO " prende fuoco e viene consumato." CR>)>)
 	       (T
-		<TELL "You can't burn a " D ,PRSO "." CR>)>>
+		<TELL "Non puoi bruciare " D ,PRSO "." CR>)>>
 
 <ROUTINE V-CHOMP ()
-	 <TELL "Preposterous!" CR>>
+	 <TELL "Assurdo!" CR>>
 
 <ROUTINE V-CLIMB-DOWN () <V-CLIMB-UP ,P?DOWN ,PRSO>>
 
@@ -295,7 +295,7 @@ Release ">
 			'<PERFORM ,V?BOARD ,PRSO>)>
 		<RTRUE>)
 	       (T
-		<TELL "You can't climb onto the " D ,PRSO "." CR>)>>
+		<TELL "Non puoi salire su " D ,PRSO "." CR>)>>
 
 <ROUTINE V-CLIMB-UP ("OPTIONAL" (DIR ,P?UP) (OBJ <>) "AUX" X TX)
 	 <COND (<AND .OBJ <NOT <EQUAL? ,PRSO ,ROOMS>>>
@@ -320,7 +320,7 @@ Release ">
 	       (<AND .OBJ
 		     <ZMEMQ ,W?WALL
 			    <SET X <GETPT ,PRSO ,P?SYNONYM>> <PTSIZE .X>>>
-		<TELL "Climbing the walls is to no avail." CR>)
+		<TELL "Arrampicarsi sulle pareti non serve a nulla." CR>)
 	       (%<COND (<==? ,ZORK-NUMBER 1>
 			'<AND <NOT <EQUAL? ,HERE ,PATH>>
 			      <EQUAL? .OBJ <> ,TREE>
@@ -341,30 +341,30 @@ Release ">
 		     <NOT <EQUAL? <GETP ,PRSO ,P?CAPACITY> 0>>>
 		<COND (<FSET? ,PRSO ,OPENBIT>
 		       <FCLEAR ,PRSO ,OPENBIT>
-		       <TELL "Closed." CR>
+		       <TELL "Chiuso." CR>
 		       <COND (<AND ,LIT <NOT <SETG LIT <LIT? ,HERE>>>>
 			      <TELL "Ora è buio pesto." CR>)>
 		       <RTRUE>)
 		      (T
-	 	       <TELL "It is already closed." CR>)>)
+		       <TELL "È già chiuso." CR>)>)
 	       (<FSET? ,PRSO ,DOORBIT>
 		<COND (<FSET? ,PRSO ,OPENBIT>
 		       <FCLEAR ,PRSO ,OPENBIT>
 		       <TELL "Il " D ,PRSO " ora è chiuso." CR>)
 		      (T
-	 	       <TELL "It is already closed." CR>)>)
+		       <TELL "È già chiuso." CR>)>)
 	       (T
 		<TELL "Non puoi chiudere quello." CR>)>>
 
 <ROUTINE V-COMMAND ()
 	 <COND (<FSET? ,PRSO ,ACTORBIT>
-		<TELL "The " D ,PRSO " pays no attention." CR>)
+		<TELL "Il " D ,PRSO " non presta attenzione." CR>)
 	       (T
 		<TELL "Non puoi parlare con quello!" CR>)>>
 
 <ROUTINE V-COUNT ()
 	 <COND (<EQUAL? ,PRSO ,BLESSINGS>
-	 	<TELL "Well, for one, you are playing Zork..." CR>)
+		<TELL "Beh, innanzitutto stai giocando a Zork..." CR>)
 	       (T
 		<TELL "Hai perso la testa." CR>)>>
 
@@ -374,12 +374,12 @@ Release ">
 <ROUTINE V-CURSES ()
 	 <COND (,PRSO
 		<COND (<FSET? ,PRSO ,ACTORBIT>
-		       <TELL "Insults of this nature won't help you." CR>)
+		       <TELL "Gli insulti di questo genere non ti aiuteranno." CR>)
 		      (T
-		       <TELL "What a loony!" CR>)>)
+		       <TELL "Che matto!" CR>)>)
 	       (T
 		<TELL
-"Such language in a high-class establishment like this!" CR>)>>
+"Che linguaggio in un ambiente di così alto livello!" CR>)>>
 
 <ROUTINE V-CUT ()
 	 <COND (<FSET? ,PRSO ,ACTORBIT>
@@ -388,16 +388,16 @@ Release ">
 		     <FSET? ,PRSI ,WEAPONBIT>>
 		<COND (<IN? ,WINNER ,PRSO>
 		       <TELL
-"Not a bright idea, especially since you're in it." CR>
+"Non è una grande idea, soprattutto visto che ci sei dentro." CR>
 		       <RTRUE>)>
 		<REMOVE-CAREFULLY ,PRSO>
 		<TELL "Your skillful " D ,PRSI "smanship slices the " D ,PRSO
-" into innumerable slivers which blow away." CR>)
+" in innumerevoli schegge che volano via." CR>)
 	       (<NOT <FSET? ,PRSI ,WEAPONBIT>>
 		<TELL
-"The \"cutting edge\" of a " D ,PRSI " is hardly adequate." CR>)
+"The \"cutting edge\" of a " D ,PRSI " non è certo sufficiente." CR>)
 	       (T
-		<TELL "Strange concept, cutting the " D ,PRSO "...." CR>)>>
+		<TELL "Idea bizzarra, tagliare " D ,PRSO "...." CR>)>>
 
 <ROUTINE V-DEFLATE ()
 	 <TELL "Come on, now!" CR>>
@@ -407,13 +407,13 @@ Release ">
 		<SETG PRSI ,HANDS>)>
 	 %<COND (<==? ,ZORK-NUMBER 1>
 		 '<COND (<EQUAL? ,PRSI ,SHOVEL>
-			 <TELL "There's no reason to be digging here." CR>
+			 <TELL "Non c'è motivo di scavare qui." CR>
 			 <RTRUE>)>)
 		(ELSE T)>
 	 <COND (<FSET? ,PRSI ,TOOLBIT>
-		<TELL "Digging with the " D ,PRSI " is slow and tedious." CR>)
+		<TELL "Scavare con " D ,PRSI " è lento e noioso." CR>)
 	       (T
-		<TELL "Digging con " D ,PRSI " is silly." CR>)>>
+		<TELL "Digging con " D ,PRSI " è sciocco." CR>)>>
 
 <ROUTINE V-DISEMBARK ()
 	 <COND (<AND <EQUAL? ,PRSO ,ROOMS>
@@ -421,14 +421,14 @@ Release ">
 		<PERFORM ,V?DISEMBARK <LOC ,WINNER>>
 		<RTRUE>)
 	       (<NOT <EQUAL? <LOC ,WINNER> ,PRSO>>
-		<TELL "You're not in that!" CR>
+		<TELL "Non sei dentro quello!" CR>
 		<RFATAL>)
 	       (<FSET? ,HERE ,RLANDBIT>
-		<TELL "You are on your own feet again." CR>
+		<TELL "Sei di nuovo in piedi." CR>
 		<MOVE ,WINNER ,HERE>)
 	       (T
 		<TELL
-"You realize that getting out here would be fatal." CR>
+"Ti rendi conto che uscire qui sarebbe fatale." CR>
 		<RFATAL>)>>
 
 <ROUTINE V-DISENCHANT ()
@@ -441,13 +441,13 @@ Release ">
 		          <COND (<FSET? ,PRSO ,ACTORBIT>
 		                 <COND (<EQUAL? ,SPELL-USED ,W?FEEBLE>
 			                <TELL
-"The " D ,PRSO " seems stronger now." CR>)
+"Il " D ,PRSO " sembra più forte ora." CR>)
 			               (<EQUAL? ,SPELL-USED ,W?FUMBLE>
 			                <TELL
-"The " D ,PRSO " no longer appears clumsy." CR>)
+"Il " D ,PRSO " non sembra più goffo." CR>)
 			               (<EQUAL? ,SPELL-USED ,W?FEAR>
 			                <TELL
-"The " D ,PRSO " no longer appears afraid." CR>)
+"Il " D ,PRSO " non sembra più impaurito." CR>)
 			               (<EQUAL? ,SPELL-USED ,W?FREEZE>
 			                <TELL
 "The " D ,PRSO " moves again." CR>)
