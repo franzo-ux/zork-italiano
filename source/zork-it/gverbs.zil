@@ -847,6 +847,11 @@ killing yourself." CR CR>
 	       "In the movies, your life would be passing before your eyes."
 	       "Geronimo...">>
 
+<ROUTINE V-HELP ()
+	<TELL "Puoi esplorare digitando comandi come GUARDA, NORD, SUD, EST,
+OVEST, APRI, PRENDI, LEGGI e INVENTARIO. Puoi usare anche i comandi
+inglesi: LOOK, NORTH, SOUTH, EAST, WEST, OPEN, TAKE, READ e INVENTORY." CR>>
+
 <ROUTINE V-LEAVE () <DO-WALK ,P?OUT>>
 
 <ROUTINE V-LISTEN ()
