@@ -13,14 +13,14 @@
 <OBJECT BOARD
 	(IN LOCAL-GLOBALS)
 	(SYNONYM BOARDS BOARD)
-	(DESC "board")
+	(DESC "asse")
 	(FLAGS NDESCBIT)
 	(ACTION BOARD-F)>
 
 <OBJECT TEETH
 	(IN GLOBAL-OBJECTS)
 	(SYNONYM OVERBOARD TEETH)
-	(DESC "set of teeth")
+	(DESC "dentatura")
 	(FLAGS NDESCBIT)
 	(ACTION TEETH-F)>
 
@@ -28,20 +28,20 @@
 	(IN GLOBAL-OBJECTS)
 	(SYNONYM WALL WALLS)
 	(ADJECTIVE SURROUNDING)
-	(DESC "surrounding wall")>
+	(DESC "parete circostante")>
 
 <OBJECT GRANITE-WALL
 	(IN GLOBAL-OBJECTS)
 	(SYNONYM WALL)
 	(ADJECTIVE GRANITE)
-	(DESC "granite wall")
+	(DESC "parete di granito")
 	(ACTION GRANITE-WALL-F)>
 
 <OBJECT SONGBIRD
 	(IN LOCAL-GLOBALS)
 	(SYNONYM BIRD SONGBIRD)
 	(ADJECTIVE SONG)
-	(DESC "songbird")
+	(DESC "uccello canoro")
 	(FLAGS NDESCBIT)
 	(ACTION SONGBIRD-F)>
 
@@ -64,12 +64,12 @@
 	(IN LOCAL-GLOBALS)
 	(SYNONYM TREE BRANCH)
 	(ADJECTIVE LARGE STORM ;"-TOSSED")
-	(DESC "tree")
+	(DESC "albero")
 	(FLAGS NDESCBIT CLIMBBIT)>
 
 <OBJECT MOUNTAIN-RANGE
 	(IN MOUNTAINS)
-	(DESC "mountain range")
+	(DESC "catena montuosa")
 	(SYNONYM MOUNTAIN RANGE)
 	(ADJECTIVE IMPASSABLE FLATHEAD)
 	(FLAGS NDESCBIT CLIMBBIT)
@@ -78,14 +78,14 @@
 <OBJECT GLOBAL-WATER
 	(IN LOCAL-GLOBALS)
 	(SYNONYM WATER QUANTITY)
-	(DESC "water")
+	(DESC "acqua")
 	(FLAGS DRINKBIT)
 	(ACTION WATER-F)>
 
 <OBJECT WATER
 	(IN BOTTLE)
 	(SYNONYM WATER QUANTITY LIQUID H2O)
-	(DESC "quantity of water")
+	(DESC "quantità d'acqua")
 	(FLAGS TRYTAKEBIT TAKEBIT DRINKBIT)
 	(ACTION WATER-F)
 	(SIZE 4)>
@@ -102,7 +102,7 @@
 	(IN LOCAL-GLOBALS)
 	(SYNONYM CHIMNEY)
 	(ADJECTIVE DARK NARROW)
-	(DESC "chimney")
+	(DESC "camino")
 	(ACTION CHIMNEY-F)
 	(FLAGS CLIMBBIT NDESCBIT)>
 
@@ -110,7 +110,7 @@
 	(IN ENTRANCE-TO-HADES)
 	(SYNONYM GHOSTS SPIRITS FIENDS FORCE)
 	(ADJECTIVE INVISIBLE EVIL)
-	(DESC "number of ghosts")
+	(DESC "numero di spiriti")
 	(FLAGS ACTORBIT NDESCBIT)
 	(ACTION GHOSTS-F)>
 
@@ -131,14 +131,14 @@ It appears to be grinning at you rather nastily.")
 	(SYNONYM CAGE DUMBWAITER BASKET)
 	(ADJECTIVE LOWERED)
 	(LDESC "From the chain is suspended a basket.")
-	(DESC "basket")
+	(DESC "cestello")
 	(FLAGS TRYTAKEBIT)
 	(ACTION BASKET-F)>
 
 <OBJECT RAISED-BASKET
 	(IN SHAFT-ROOM)
 	(SYNONYM CAGE DUMBWAITER BASKET)
-	(DESC "basket")
+	(DESC "cestello")
 	(FLAGS TRANSBIT TRYTAKEBIT CONTBIT OPENBIT)
 	(ACTION BASKET-F)
 	(LDESC "At the end of the chain is a basket.")
@@ -148,7 +148,7 @@ It appears to be grinning at you rather nastily.")
 	(IN SANDWICH-BAG)
 	(SYNONYM FOOD SANDWICH LUNCH DINNER)
 	(ADJECTIVE HOT PEPPER)
-	(DESC "lunch")
+	(DESC "pranzo")
 	(FLAGS TAKEBIT FOODBIT)
 	(LDESC "A hot pepper sandwich is here.")>
 
@@ -156,7 +156,7 @@ It appears to be grinning at you rather nastily.")
 	(IN BAT-ROOM)
 	(SYNONYM BAT VAMPIRE)
 	(ADJECTIVE VAMPIRE DERANGED)
-	(DESC "bat")
+	(DESC "pipistrello")
 	(FLAGS ACTORBIT TRYTAKEBIT)
 	(DESCFCN BAT-D)
 	(ACTION BAT-F)>
@@ -165,14 +165,14 @@ It appears to be grinning at you rather nastily.")
 	(IN NORTH-TEMPLE)
 	(SYNONYM BELL)
 	(ADJECTIVE SMALL BRASS)
-	(DESC "brass bell")
+	(DESC "campana di ottone")
 	(FLAGS TAKEBIT)
 	(ACTION BELL-F)>
 
 <OBJECT HOT-BELL
 	(SYNONYM BELL)
 	(ADJECTIVE BRASS HOT RED SMALL)
-	(DESC "red hot brass bell")
+	(DESC "campana di ottone rovente")
 	(FLAGS TRYTAKEBIT)
 	(ACTION HOT-BELL-F)
 	(LDESC "On the ground is a red hot bell.")>
@@ -181,7 +181,7 @@ It appears to be grinning at you rather nastily.")
 	(IN TROLL)
 	(SYNONYM AXE AX)
 	(ADJECTIVE BLOODY)
-	(DESC "bloody axe")
+	(DESC "ascia insanguinata")
 	(FLAGS WEAPONBIT TRYTAKEBIT TAKEBIT NDESCBIT)
 	(ACTION AXE-F)
 	(SIZE 25)>
@@ -190,7 +190,7 @@ It appears to be grinning at you rather nastily.")
 	(IN DAM-ROOM)
 	(SYNONYM BOLT NUT)
 	(ADJECTIVE METAL LARGE)
-	(DESC "bolt")
+	(DESC "bullone")
 	(FLAGS NDESCBIT TURNBIT TRYTAKEBIT)
 	(ACTION BOLT-F)>
 
@@ -198,14 +198,14 @@ It appears to be grinning at you rather nastily.")
 	(IN DAM-ROOM)
 	(SYNONYM BUBBLE)
 	(ADJECTIVE SMALL GREEN PLASTIC)
-	(DESC "green bubble")
+	(DESC "bolla verde")
 	(FLAGS NDESCBIT TRYTAKEBIT)
 	(ACTION BUBBLE-F)>
 
 <OBJECT ALTAR
 	(IN SOUTH-TEMPLE)
 	(SYNONYM ALTAR)
-	(DESC "altar")
+	(DESC "altare")
 	(FLAGS NDESCBIT SURFACEBIT CONTBIT OPENBIT)
 	(CAPACITY 50)>
 
@@ -213,7 +213,7 @@ It appears to be grinning at you rather nastily.")
 	(IN ALTAR)
 	(SYNONYM BOOK PRAYER PAGE BOOKS)
 	(ADJECTIVE LARGE BLACK)
-	(DESC "black book")
+	(DESC "libro nero")
 	(FLAGS READBIT TAKEBIT CONTBIT BURNBIT TURNBIT)
 	(ACTION BLACK-BOOK)
 	(FDESC "On the altar is a large black book, open to page 569.")
@@ -233,14 +233,14 @@ Surely thou shalt repent of thy cunning." )>
 <OBJECT BROKEN-LAMP
 	(SYNONYM LAMP LANTERN)
 	(ADJECTIVE BROKEN)
-	(DESC "broken lantern")
+	(DESC "lanterna rotta")
 	(FLAGS TAKEBIT)>
 
 <OBJECT SCEPTRE
 	(IN COFFIN)
 	(SYNONYM SCEPTRE SCEPTER TREASURE)
 	(ADJECTIVE SHARP EGYPTIAN ANCIENT ENAMELED)
-	(DESC "sceptre")
+	(DESC "scettro")
 	(FLAGS TAKEBIT WEAPONBIT)
 	(ACTION SCEPTRE-FUNCTION)
 	(LDESC
@@ -256,7 +256,7 @@ sceptre is ornamented with colored enamel, and tapers to a sharp point.")
 	(IN TIMBER-ROOM)
 	(SYNONYM TIMBERS PILE)
 	(ADJECTIVE WOODEN BROKEN)
-	(DESC "broken timber")
+	(DESC "trave spezzata")
 	(FLAGS TAKEBIT)
 	(SIZE 50)>
 
@@ -264,7 +264,7 @@ sceptre is ornamented with colored enamel, and tapers to a sharp point.")
 	(IN LOCAL-GLOBALS)
 	(SYNONYM CHUTE RAMP SLIDE)
 	(ADJECTIVE STEEP METAL TWISTING)
-	(DESC "chute")
+	(DESC "scivolo")
 	(FLAGS CLIMBBIT)
 	(ACTION SLIDE-FUNCTION)>
 
@@ -279,7 +279,7 @@ sceptre is ornamented with colored enamel, and tapers to a sharp point.")
 <OBJECT ATTIC-TABLE
 	(IN ATTIC)
 	(SYNONYM TABLE)
-	(DESC "table")
+	(DESC "tavolo")
 	(FLAGS NDESCBIT CONTBIT OPENBIT SURFACEBIT)
 	(CAPACITY 40)>
 

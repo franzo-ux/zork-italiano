@@ -7,6 +7,8 @@
   volantino.
 - Prime descrizioni e messaggi: lato ovest/est, titoli delle aree, stanze
   principali della casa, cucina, soggiorno e messaggi della casa bianca.
+- Tradotti ulteriori messaggi delle azioni iniziali, della botola e del
+  parser comune, oltre ai nomi descrittivi degli oggetti principali.
 - Esecuzione Z-machine verificata nel terminale: l'avvio e i comandi italiani
   base funzionano; restano messaggi inglesi da tradurre.
 
