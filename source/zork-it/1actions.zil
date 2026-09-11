@@ -418,7 +418,7 @@ avventura che ha messo alla prova ingegno e coraggio. Avete dominato">
 		<COND (<EQUAL? <BAND <GETB 0 1> 8> 0>
 		       <TELL "
 la prima parte della trilogia di ZORK. Chi attraversa questo ponte deve essere
-pronto ad affrontare un'avventura ancora più grande, che metterà a dura prova\ abilità e coraggio!|
+pronto ad affrontare un'avventura ancora più grande, che metterà a dura prova abilità e coraggio!|
 |
 The ZORK trilogy continues with \"ZORK II: The Wizard of Frobozz\" and
 is completed in \"ZORK III: The Dungeon Master.\"" CR>)
@@ -450,7 +450,8 @@ ZORK: The Great Underground Empire.|" CR>)>
 "Sei nel soggiorno. A est c'è un passaggio">
 	       <COND (,MAGIC-FLAG
 		      <TELL
-". A ovest c'è un'apertura a forma di ciclope in una vecchia porta di legno, sopra la quale\sono incise strane lettere gotiche: ">)
+". A ovest c'è un'apertura a forma di ciclope in una vecchia porta di legno, sopra la quale
+sono incise strane lettere gotiche: ">)
 		     (T
 		      <TELL
 ", a wooden
@@ -504,13 +505,13 @@ nailed shut, ">)>
 	  (<AND <VERB? OPEN CLOSE>
 		<EQUAL? ,HERE ,LIVING-ROOM>>
 	   <OPEN-CLOSE ,PRSO
-"La porta si apre a malincuore, rivelando una scala malferma che scende nel uio."
+"La porta si apre a malincuore, rivelando una scala malferma che scende nel buio."
 "La porta si richiude con un cigolio.">)
 	  (<AND <VERB? LOOK-UNDER> <EQUAL? ,HERE LIVING-ROOM>>
 	   <COND (<FSET? ,TRAP-DOOR ,OPENBIT>
 		  <TELL
 "Vedi una scala malferma che scende nel buio." CR>)
-		 (T <TELL "It's closed." CR>)>)
+		 (T <TELL "È chiusa." CR>)>)
 	  (<EQUAL? ,HERE ,CELLAR>
 	   <COND (<AND <VERB? OPEN UNLOCK>
 		       <NOT <FSET? ,TRAP-DOOR ,OPENBIT>>>
@@ -528,7 +529,7 @@ nailed shut, ">)>
 	 <TELL
 "Ti trovi in una cantina buia e umida, con uno stretto passaggio che conduce
 north, and a crawlway to the south. On the west is the bottom of a
-steep metal ramp which is unclimbable." CR>)
+ripida rampa metallica impossibile da scalare." CR>)
 	(<EQUAL? .RARG ,M-ENTER>
 	 <COND (<AND <FSET? ,TRAP-DOOR ,OPENBIT>
 		     <NOT <FSET? ,TRAP-DOOR ,TOUCHBIT>>>
