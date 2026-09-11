@@ -270,9 +270,9 @@ sceptre is ornamented with colored enamel, and tapers to a sharp point.")
 
 <OBJECT KITCHEN-TABLE
 	(IN KITCHEN)
-	(SYNONYM TABLE)
-	(ADJECTIVE KITCHEN)
-	(DESC "kitchen table")
+	(SYNONYM TABLE TAVOLO)
+	(ADJECTIVE KITCHEN CUCINA)
+	(DESC "tavolo della cucina")
 	(FLAGS NDESCBIT CONTBIT OPENBIT SURFACEBIT)
 	(CAPACITY 50)>
 
@@ -285,12 +285,12 @@ sceptre is ornamented with colored enamel, and tapers to a sharp point.")
 
 <OBJECT SANDWICH-BAG
 	(IN KITCHEN-TABLE)
-	(SYNONYM BAG SACK)
-	(ADJECTIVE BROWN ELONGATED SMELLY)
-	(DESC "brown sack")
+	(SYNONYM BAG SACK SACCO)
+	(ADJECTIVE BROWN ELONGATED SMELLY MARRONE)
+	(DESC "sacco marrone")
 	(FLAGS TAKEBIT CONTBIT BURNBIT)
 	(FDESC
-"On the table is an elongated brown sack, smelling of hot peppers.")
+"Sul tavolo c'è un lungo sacco marrone, che odora di peperoncini.")
 	(CAPACITY 9)
 	(SIZE 9)
 	(ACTION SANDWICH-BAG-FCN)>
@@ -337,18 +337,18 @@ sceptre is ornamented with colored enamel, and tapers to a sharp point.")
 
 <OBJECT TROPHY-CASE	;"first obj so L.R. desc looks right."
 	(IN LIVING-ROOM)
-	(SYNONYM CASE)
-	(ADJECTIVE TROPHY)
-	(DESC "trophy case")
+	(SYNONYM CASE VETRINA)
+	(ADJECTIVE TROPHY TROFEI)
+	(DESC "vetrina dei trofei")
 	(FLAGS TRANSBIT CONTBIT NDESCBIT TRYTAKEBIT SEARCHBIT)
 	(ACTION TROPHY-CASE-FCN)
 	(CAPACITY 10000)>
 
 <OBJECT RUG
 	(IN LIVING-ROOM)
-	(SYNONYM RUG CARPET)
-	(ADJECTIVE LARGE ORIENTAL)
-	(DESC "carpet")
+	(SYNONYM RUG CARPET TAPPETO)
+	(ADJECTIVE LARGE ORIENTAL GRANDE)
+	(DESC "tappeto")
 	(FLAGS NDESCBIT TRYTAKEBIT)
 	(ACTION RUG-FCN)>
 
@@ -404,23 +404,23 @@ sceptre is ornamented with colored enamel, and tapers to a sharp point.")
 	(IN LIVING-ROOM)
 	(SYNONYM DOOR TRAPDOOR TRAP-DOOR COVER)
 	(ADJECTIVE TRAP DUSTY)
-	(DESC "trap door")
+	(DESC "botola")
 	(FLAGS DOORBIT NDESCBIT INVISIBLE)
 	(ACTION TRAP-DOOR-FCN)>
 
 <OBJECT BOARDED-WINDOW
 	(IN LOCAL-GLOBALS)
-        (SYNONYM WINDOW)
-	(ADJECTIVE BOARDED)
-	(DESC "boarded window")
+        (SYNONYM WINDOW FINESTRA)
+	(ADJECTIVE BOARDED SBARRATA)
+	(DESC "finestra sbarrata")
 	(FLAGS NDESCBIT)
 	(ACTION BOARDED-WINDOW-FCN)>
 
 <OBJECT FRONT-DOOR
 	(IN WEST-OF-HOUSE)
-	(SYNONYM DOOR)
-	(ADJECTIVE FRONT BOARDED)
-	(DESC "door")
+	(SYNONYM DOOR PORTA)
+	(ADJECTIVE FRONT BOARDED INGRESSO SBARRATA)
+	(DESC "porta")
 	(FLAGS DOORBIT NDESCBIT)
 	(ACTION FRONT-DOOR-FCN)>
 
@@ -442,12 +442,12 @@ sceptre is ornamented with colored enamel, and tapers to a sharp point.")
 
 <OBJECT BOTTLE
 	(IN KITCHEN-TABLE)
-	(SYNONYM BOTTLE CONTAINER)
-	(ADJECTIVE CLEAR GLASS)
-	(DESC "glass bottle")
+	(SYNONYM BOTTLE CONTAINER BOTTIGLIA)
+	(ADJECTIVE CLEAR GLASS VETRO)
+	(DESC "bottiglia di vetro")
 	(FLAGS TAKEBIT TRANSBIT CONTBIT)
 	(ACTION BOTTLE-FUNCTION)
-	(FDESC "A bottle is sitting on the table.")
+	(FDESC "Sul tavolo c'è una bottiglia.")
 	(CAPACITY 4)>
 
 <OBJECT CRACK
@@ -511,7 +511,7 @@ sceptre is ornamented with colored enamel, and tapers to a sharp point.")
 	(ADJECTIVE NASTY UNRUSTY)
 	(DESC "nasty knife")
 	(FLAGS TAKEBIT WEAPONBIT TRYTAKEBIT)
-	(FDESC "On a table is a nasty-looking knife.")
+	(FDESC "Su un tavolo c'è un coltello dall'aspetto minaccioso.")
 	(ACTION KNIFE-F)>
 
 <OBJECT BONES
@@ -549,8 +549,8 @@ sceptre is ornamented with colored enamel, and tapers to a sharp point.")
 	(DESC "brass lantern")
 	(FLAGS TAKEBIT LIGHTBIT)
 	(ACTION LANTERN)
-	(FDESC "A battery-powered brass lantern is on the trophy case.")
-	(LDESC "There is a brass lantern (battery-powered) here.")
+	(FDESC "Sulla vetrina dei trofei c'è una lampada di ottone a batterie.")
+	(LDESC "C'è qui una lampada di ottone a batterie.")
 	(SIZE 15)>
 
 <OBJECT EMERALD
@@ -568,13 +568,13 @@ sceptre is ornamented with colored enamel, and tapers to a sharp point.")
 	(ADJECTIVE SMALL PICCOLO)
 	(DESC "volantino")
 	(FLAGS READBIT TAKEBIT BURNBIT)
-	(LDESC "A small leaflet is on the ground.")
+	(LDESC "Un piccolo volantino è a terra.")
 	(TEXT
-"\"WELCOME TO ZORK!|
+"\"BENVENUTO IN ZORK!|
 |
-ZORK is a game of adventure, danger, and low cunning. In it you
-will explore some of the most amazing territory ever seen by mortals.
-No computer should be without one!\"")
+ZORK è un gioco di avventura, pericolo e astuzia. Esplorerai alcuni
+dei territori più sorprendenti mai visti da occhi mortali.
+Nessun computer dovrebbe esserne privo!\"")
 	(SIZE 2)>
 
 <OBJECT LEAK
@@ -1264,31 +1264,31 @@ is a huge stone door which is open. You cannot see into the dark of the tomb.")
 <ROOM NORTH-OF-HOUSE
       (IN ROOMS)
       (LDESC
-"You are facing the north side of a white house. There is no door here,
-and all the windows are boarded up. To the north a narrow path winds through
-the trees.")
+"Sei rivolto verso il lato nord di una casa bianca. Qui non c'è nessuna porta
+e tutte le finestre sono sbarrate. A nord un sentiero stretto si snoda tra
+gli alberi.")
       (DESC "A nord della casa")
       (SW TO WEST-OF-HOUSE)
       (SE TO EAST-OF-HOUSE)
       (WEST TO WEST-OF-HOUSE)
       (EAST TO EAST-OF-HOUSE)
       (NORTH TO PATH)
-      (SOUTH "The windows are all boarded.")
+      (SOUTH "Tutte le finestre sono sbarrate.")
       (FLAGS RLANDBIT ONBIT SACREDBIT)
       (GLOBAL BOARDED-WINDOW BOARD WHITE-HOUSE FOREST)>
 
 <ROOM SOUTH-OF-HOUSE
       (IN ROOMS)
       (LDESC
-"You are facing the south side of a white house. There is no door here,
-and all the windows are boarded.")
+"Sei rivolto verso il lato sud di una casa bianca. Qui non c'è nessuna porta
+e tutte le finestre sono sbarrate.")
       (DESC "A sud della casa")
       (WEST TO WEST-OF-HOUSE)
       (EAST TO EAST-OF-HOUSE)
       (NE TO EAST-OF-HOUSE)
       (NW TO WEST-OF-HOUSE)
       (SOUTH TO FOREST-3)
-      (NORTH "The windows are all boarded.")
+      (NORTH "Tutte le finestre sono sbarrate.")
       (FLAGS RLANDBIT ONBIT SACREDBIT)
       (GLOBAL BOARDED-WINDOW BOARD WHITE-HOUSE FOREST)>
 
@@ -1309,24 +1309,24 @@ and all the windows are boarded.")
 <ROOM FOREST-1
       (IN ROOMS)
       (LDESC
-"This is a forest, with trees in all directions. To the east,
-there appears to be sunlight.")
-      (DESC "Forest")
-      (UP "There is no tree here suitable for climbing.")
+"Questo è un bosco, con alberi in tutte le direzioni. A est,
+sembra esserci della luce.")
+      (DESC "Bosco")
+      (UP "Non c'è nessun albero adatto da scalare.")
       (NORTH TO GRATING-CLEARING)
       (EAST TO PATH)
       (SOUTH TO FOREST-3)
-      (WEST "You would need a machete to go further west.")
+      (WEST "Ti servirebbe un machete per proseguire verso ovest.")
       (ACTION FOREST-ROOM)
       (FLAGS RLANDBIT ONBIT SACREDBIT)
       (GLOBAL TREE SONGBIRD WHITE-HOUSE FOREST)>
 
 <ROOM FOREST-2
       (IN ROOMS)
-      (LDESC "This is a dimly lit forest, with large trees all around.")
-      (DESC "Forest")
-      (UP "There is no tree here suitable for climbing.")
-      (NORTH "The forest becomes impenetrable to the north.")
+      (LDESC "Questo è un bosco fiocamente illuminato, con grandi alberi tutt'intorno.")
+      (DESC "Bosco")
+      (UP "Non c'è nessun albero adatto da scalare.")
+      (NORTH "Il bosco diventa impenetrabile verso nord.")
       (EAST TO MOUNTAINS)
       (SOUTH TO CLEARING)
       (WEST TO PATH)
@@ -1336,11 +1336,11 @@ there appears to be sunlight.")
 
 <ROOM MOUNTAINS
       (IN ROOMS)
-      (LDESC "The forest thins out, revealing impassable mountains.")
-      (DESC "Forest")
-      (UP "The mountains are impassable.")
+      (LDESC "Il bosco si dirada, rivelando montagne invalicabili.")
+      (DESC "Montagne")
+      (UP "Le montagne sono invalicabili.")
       (NORTH TO FOREST-2)
-      (EAST "The mountains are impassable.")
+      (EAST "Le montagne sono invalicabili.")
       (SOUTH TO FOREST-2)
       (WEST TO FOREST-2)
       (FLAGS RLANDBIT ONBIT SACREDBIT)
@@ -1348,12 +1348,12 @@ there appears to be sunlight.")
 
 <ROOM FOREST-3
       (IN ROOMS)
-      (LDESC "This is a dimly lit forest, with large trees all around.")
-      (DESC "Forest")
-      (UP "There is no tree here suitable for climbing.")
+      (LDESC "Questo è un bosco fiocamente illuminato, con grandi alberi tutt'intorno.")
+      (DESC "Bosco")
+      (UP "Non c'è nessun albero adatto da scalare.")
       (NORTH TO CLEARING)
-      (EAST "The rank undergrowth prevents eastward movement.")
-      (SOUTH "Storm-tossed trees block your way.")
+      (EAST "Il folto sottobosco impedisce di procedere verso est.")
+      (SOUTH "Alberi abbattuti dalla tempesta ti sbarrano la strada.")
       (WEST TO FOREST-1)
       (NW TO SOUTH-OF-HOUSE)
       (ACTION FOREST-ROOM)
@@ -1363,10 +1363,10 @@ there appears to be sunlight.")
 <ROOM PATH
       (IN ROOMS)
       (LDESC
-"This is a path winding through a dimly lit forest. The path heads
-north-south here. One particularly large tree with some low branches
-stands at the edge of the path.")
-      (DESC "Forest Path")
+"Questo è un sentiero che attraversa un bosco fiocamente illuminato. Il sentiero
+corre qui da nord a sud. Un albero particolarmente grande, con alcuni rami bassi,
+si trova ai margini del sentiero.")
+      (DESC "Sentiero nel bosco")
       (UP TO UP-A-TREE)
       (NORTH TO GRATING-CLEARING)
       (EAST TO FOREST-2)
@@ -1378,17 +1378,17 @@ stands at the edge of the path.")
 
 <ROOM UP-A-TREE
       (IN ROOMS)
-      (DESC "Up a Tree")
+      (DESC "Su un albero")
       (DOWN TO PATH)
-      (UP "You cannot climb any higher.")
+      (UP "Non puoi salire più in alto.")
       (ACTION TREE-ROOM)
       (FLAGS RLANDBIT ONBIT SACREDBIT)
       (GLOBAL TREE FOREST SONGBIRD WHITE-HOUSE)>
 
 <ROOM GRATING-CLEARING
       (IN ROOMS)
-      (DESC "Clearing")
-      (NORTH "The forest becomes impenetrable to the north.")
+      (DESC "Radura")
+      (NORTH "Il bosco diventa impenetrabile verso nord.")
       (EAST TO FOREST-2)
       (WEST TO FOREST-1)
       (SOUTH TO PATH)
@@ -1402,18 +1402,18 @@ stands at the edge of the path.")
 		<COND (<FSET? ,GRATE ,OPENBIT>
 		       ,GRATING-ROOM)
 		      (T
-		       <TELL "The grating is closed!" CR>
+		       <TELL "La grata è chiusa!" CR>
 		       <THIS-IS-IT ,GRATE>
 		       <RFALSE>)>)
-	       (T <TELL "You can't go that way." CR> <RFALSE>)>>
+	       (T <TELL "Non puoi andare da quella parte." CR> <RFALSE>)>>
 
 <ROOM CLEARING
       (IN ROOMS)
       (LDESC
-"You are in a small clearing in a well marked forest path that
-extends to the east and west.")
-      (DESC "Clearing")
-      (UP "There is no tree here suitable for climbing.")
+"Sei in una piccola radura lungo un sentiero ben segnato nel bosco che
+si estende a est e a ovest.")
+      (DESC "Radura")
+      (UP "Non c'è nessun albero adatto da scalare.")
       (EAST TO CANYON-VIEW)
       (NORTH TO FOREST-2)
       (SOUTH TO FOREST-3)
@@ -1434,7 +1434,7 @@ extends to the east and west.")
       (OUT TO EAST-OF-HOUSE IF KITCHEN-WINDOW IS OPEN)
       (UP TO ATTIC)
       (DOWN TO STUDIO IF FALSE-FLAG ELSE
-	 "Only Santa Claus climbs down chimneys.")
+	 "Solo Babbo Natale scende dai camini.")
       (ACTION KITCHEN-FCN)
       (FLAGS RLANDBIT ONBIT SACREDBIT)
       (VALUE 10)
@@ -1442,8 +1442,8 @@ extends to the east and west.")
 
 <ROOM ATTIC
       (IN ROOMS)
-      (LDESC "This is the attic. The only exit is a stairway leading down.")
-      (DESC "Attic")
+      (LDESC "Questa è la soffitta. L'unica uscita è una scala che conduce in basso.")
+      (DESC "Soffitta")
       (DOWN TO KITCHEN)
       (FLAGS RLANDBIT SACREDBIT)
       (GLOBAL STAIRS)>

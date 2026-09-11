@@ -97,8 +97,8 @@ game position, or end this session of the game?|
 
 <ROUTINE V-VERSION ("AUX" (CNT 17))
 	%<COND (<==? ,ZORK-NUMBER 1>
-		'<TELL "ZORK I: The Great Underground Empire|
-Infocom interactive fiction - a fantasy story|
+		'<TELL "ZORK I: Il Grande Impero Sotterraneo|
+Avventura interattiva Infocom - una storia fantastica|
 Copyright (c) 1981, 1982, 1983, 1984, 1985, 1986">)
 	       (<==? ,ZORK-NUMBER 2>
 		'<TELL "ZORK II: The Wizard of Frobozz|
@@ -108,8 +108,8 @@ Copyright (c) 1981, 1982, 1983, 1986">)
 		'<TELL "ZORK III: The Dungeon Master|
 Infocom interactive fiction - a fantasy story|
 Copyright 1982, 1983, 1984, 1986">)>
-	<TELL " Infocom, Inc. All rights reserved." CR>
-	<TELL "ZORK is a registered trademark of Infocom, Inc.|
+	<TELL " Infocom, Inc. Tutti i diritti riservati." CR>
+	<TELL "ZORK è un marchio registrato di Infocom, Inc.|
 Release ">
 	<PRINTN <BAND <GET 0 1> *3777*>>
 	<TELL " / Serial number ">
@@ -329,7 +329,7 @@ Release ">
 		<TELL "There are no climbable trees here." CR>
 		<RTRUE>)
 	       (<EQUAL? .OBJ <> ,ROOMS>
-		<TELL "You can't go that way." CR>)
+		<TELL "Non puoi andare da quella parte." CR>)
 	       (T
 	        <TELL "You can't do that!" CR>)>>
 
@@ -866,9 +866,9 @@ killing yourself." CR CR>
 	 <COND (<FSET? ,PRSO ,DOORBIT>
 		<COND (<FSET? ,PRSO ,OPENBIT>
 		       <TELL
-"The " D ,PRSO " is open, but I can't tell what's beyond it.">)
+D ,PRSO " è aperto, ma non riesco a vedere cosa ci sia oltre.">)
 		      (T
-		       <TELL "The " D ,PRSO " is closed.">)>
+		       <TELL D ,PRSO " è chiuso.">)>
 		<CRLF>)
 	       (<FSET? ,PRSO ,CONTBIT>
 		<COND (<FSET? ,PRSO ,ACTORBIT>
@@ -885,7 +885,7 @@ killing yourself." CR CR>
 			     (T
 			      <TELL "The " D ,PRSO " is empty." CR>)>)
 		      (T
-		       <TELL "The " D ,PRSO " is closed." CR>)>)
+		       <TELL D ,PRSO " è chiuso." CR>)>)
 	       (T
 		<TELL "You can't look inside a " D ,PRSO "." CR>)>>
 
@@ -967,27 +967,27 @@ by knocking down the wall on the east of the room." CR>
 	 <COND (<AND <FSET? ,PRSO ,CONTBIT>
 		     <NOT <EQUAL? <GETP ,PRSO ,P?CAPACITY> 0>>>
 		<COND (<FSET? ,PRSO ,OPENBIT>
-		       <TELL "It is already open." CR>)
+		       <TELL "È già aperto." CR>)
 		      (T
 		       <FSET ,PRSO ,OPENBIT>
 		       <FSET ,PRSO ,TOUCHBIT>
 		       <COND (<OR <NOT <FIRST? ,PRSO>> <FSET? ,PRSO ,TRANSBIT>>
-			      <TELL "Opened." CR>)
+			      <TELL "Aperto." CR>)
 			     (<AND <SET F <FIRST? ,PRSO>>
 				   <NOT <NEXT? .F>>
 				   <NOT <FSET? .F ,TOUCHBIT>>
 				   <SET STR <GETP .F ,P?FDESC>>>
-			      <TELL "The " D ,PRSO " opens." CR>
+			      <TELL D ,PRSO " si apre." CR>
 			      <TELL .STR CR>)
 			     (T
-			      <TELL "Opening the " D ,PRSO " reveals ">
+			      <TELL "Aprendo " D ,PRSO " scopri ">
 			      <PRINT-CONTENTS ,PRSO>
 			      <TELL "." CR>)>)>)
 	       (<FSET? ,PRSO ,DOORBIT>
 		<COND (<FSET? ,PRSO ,OPENBIT>
-		       <TELL "It is already open." CR>)
+		       <TELL "È già aperto." CR>)
 		      (T
-		       <TELL "The " D ,PRSO " opens." CR>
+		       <TELL D ,PRSO " si apre." CR>
 		       <FSET ,PRSO ,OPENBIT>)>)
 	       (T
 		<TELL
@@ -1384,7 +1384,7 @@ D ,PRSO " with a weapon." CR>)
 		<COND (<FSET? ,PRSO ,WEARBIT>
 		       <TELL "You are now wearing the " D ,PRSO "." CR>)
 		      (T
-		       <TELL "Taken." CR>)>)>>
+		       <TELL "Preso." CR>)>)>>
 
 <ROUTINE V-TELL ()
 	 <COND (<FSET? ,PRSO ,ACTORBIT>
@@ -1545,7 +1545,7 @@ CR>)
 			      <TELL .STR CR>
 			      <RFATAL>)
 			     (T
-			      <TELL "You can't go that way." CR>
+			      <TELL "Non puoi andare da quella parte." CR>
 			      <RFATAL>)>)
 		      (<EQUAL? .PTS ,DEXIT>
 		       <COND (<FSET? <SET OBJ <GETB .PT ,DEXITOBJ>> ,OPENBIT>
@@ -1577,7 +1577,7 @@ direction." CR>
 		       <JIGS-UP
 "Oh, no! You have walked into the slavering fangs of a lurking grue!">)>)
 	       (T
-		<TELL "You can't go that way." CR>
+		<TELL "Non puoi andare da quella parte." CR>
 		<RFATAL>)>>
 
 <ROUTINE V-WALK-AROUND ()
@@ -1701,18 +1701,18 @@ long description (fdesc or ldesc), otherwise will print short."
 			 <SET STR <GETP .OBJ ,P?LDESC>>>>
 		<TELL .STR>)
 	       (<0? .LEVEL>
-		<TELL "There is a " D .OBJ " here">
+		<TELL "C'è " D .OBJ " qui">
 		<COND (<FSET? .OBJ ,ONBIT>
-		       <TELL " (providing light)">)>
+		       <TELL " (che fa luce)">)>
 		<TELL ".">)
 	       (T
 		<TELL <GET ,INDENTS .LEVEL>>
-		<TELL "A " D .OBJ>
+		<TELL D .OBJ>
 		<COND (<FSET? .OBJ ,ONBIT>
-		       <TELL " (providing light)">)
+		       <TELL " (che fa luce)">)
 		      (<AND <FSET? .OBJ ,WEARBIT>
 			    <IN? .OBJ ,WINNER>>
-		       <TELL " (being worn)">)>)>
+		       <TELL " (indossato)">)>)>
 	 %<COND (<==? ,ZORK-NUMBER 2>
 		 '<COND (<AND <EQUAL? .OBJ ,SPELL-VICTIM>
 		              <EQUAL? ,SPELL-USED ,W?FLOAT>>
@@ -1722,7 +1722,7 @@ long description (fdesc or ldesc), otherwise will print short."
 	 <COND (<AND <0? .LEVEL>
 		     <SET AV <LOC ,WINNER>>
 		     <FSET? .AV ,VEHBIT>>
-		<TELL " (outside the " D .AV ")">)>
+		<TELL " (fuori da " D .AV ")">)>
 	 <CRLF>
 	 <COND (<AND <SEE-INSIDE? .OBJ> <FIRST? .OBJ>>
 		<PRINT-CONT .OBJ .V? .LEVEL>)>>
@@ -1823,16 +1823,16 @@ long description (fdesc or ldesc), otherwise will print short."
 		      (T
 		       '(<NULL-F> <RTRUE>))>
 	       (<EQUAL? .OBJ ,WINNER>
-		<TELL "You are carrying:" CR>)
+		<TELL "Stai portando:" CR>)
 	       (<NOT <IN? .OBJ ,ROOMS>>
 		<COND (<G? .LEVEL 0>
 		       <TELL <GET ,INDENTS .LEVEL>>)>
 		<COND (<FSET? .OBJ ,SURFACEBIT>
-		       <TELL "Sitting on the " D .OBJ " is: " CR>)
+		       <TELL "Sul " D .OBJ " c'è:" CR>)
 		      (<FSET? .OBJ ,ACTORBIT>
-		       <TELL "The " D .OBJ " is holding: " CR>)
+		       <TELL D .OBJ " tiene:" CR>)
 		      (T
-		       <TELL "The " D .OBJ " contains:" CR>)>)>>
+		       <TELL D .OBJ " contiene:" CR>)>)>>
 
 <ROUTINE SEE-INSIDE? (OBJ)
 	 <AND <NOT <FSET? .OBJ ,INVISIBLE>>
@@ -1970,7 +1970,7 @@ for the final secret.\"" CR>)>)
 		<RFALSE>)
 	       (<AND <NOT <IN? ,PRSO ,WINNER>>
 		     <NOT <FSET? <LOC ,PRSO> ,OPENBIT>>>
-		<TELL "The " D ,PRSO " is closed." CR>
+		<TELL D ,PRSO " è chiuso." CR>
 		<RFALSE>)
 	       (T
 		<MOVE ,PRSO <LOC ,WINNER>>
@@ -2042,11 +2042,19 @@ for the final secret.\"" CR>)>)
 		<TELL "You can't go there without a vehicle.">)>
 	 <CRLF>>
 
+<ROUTINE CHAPTER-ROOM? (RM)
+	 <EQUAL? .RM WEST-OF-HOUSE NORTH-OF-HOUSE SOUTH-OF-HOUSE EAST-OF-HOUSE
+		FOREST-1 FOREST-2 FOREST-3 PATH UP-A-TREE GRATING-CLEARING CLEARING
+		KITCHEN ATTIC LIVING-ROOM>>
+
 <ROUTINE GOTO (RM "OPTIONAL" (V? T)
 	       "AUX" (LB <FSET? .RM ,RLANDBIT>) (WLOC <LOC ,WINNER>)
 	             (AV <>) OLIT OHERE)
 	 <SET OLIT ,LIT>
 	 <SET OHERE ,HERE>
+	 <COND (<NOT <CHAPTER-ROOM? .RM>>
+		<TELL "Questa parte dell'Impero Sotterraneo non è ancora tradotta." CR>
+		<RFALSE>)>
 	 <COND (<FSET? .WLOC ,VEHBIT>
 		<SET AV <GETP .WLOC ,P?VTYPE>>)>
 	 <COND (<AND <NOT .LB>

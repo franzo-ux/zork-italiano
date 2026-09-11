@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#10150f" />
+    <title>Zork I — Edizione italiana</title>
+    <link rel="stylesheet" href="style.css?v=4" />
+  </head>
+  <body>
+    <main class="terminal" aria-label="Zork I, avventura testuale">
+      <header>
+        <a class="wordmark" href="/" aria-label="Ricomincia Zork">ZORK <small>I</small></a>
+        <p>Edizione italiana · Capitolo 1</p>
+      </header>
+      <div class="play-area">
+        <section id="story" aria-live="polite" aria-label="Testo dell'avventura"></section>
+        <aside class="automap" aria-label="Mappa delle stanze esplorate">
+          <p>AUTOMAPPA</p>
+          <svg id="map" viewBox="0 0 160 160" role="img" aria-label="Stanze e collegamenti esplorati"></svg>
+        </aside>
+      </div>
+      <form id="command-form">
+        <label for="command"><span aria-hidden="true">›</span><span class="sr-only">Comando</span></label>
+        <input id="command" name="command" autocomplete="off" autofocus spellcheck="false" />
+      </form>
+      <footer><span>IT + EN parser</span><button type="button" id="help">AIUTO</button><span id="turns">turno 0</span></footer>
+    </main>
+    <script type="module" src="app.js?v=4"></script>
+  </body>
+</html>

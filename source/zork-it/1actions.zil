@@ -139,19 +139,19 @@ to brush them with." CR>)
 			       ,WEST-OF-HOUSE ,NORTH-OF-HOUSE
 			       ,SOUTH-OF-HOUSE>
 			   <EQUAL? ,HERE ,EAST-OF-HOUSE>>
-		       <TELL "You aren't even in the forest." CR>)>
+		       <TELL "Non sei nemmeno nel bosco." CR>)>
 		<GO-NEXT ,FOREST-AROUND>)
 	       (<VERB? DISEMBARK>
-		<TELL "You will have to specify a direction." CR>)
+		<TELL "Devi specificare una direzione." CR>)
 	       (<VERB? FIND>
-		<TELL "You cannot see the forest for the trees." CR>)
+		<TELL "Non riesci a vedere il bosco per via degli alberi." CR>)
 	       (<VERB? LISTEN>
-		<TELL "The pines and the hemlocks seem to be murmuring."
+		<TELL "I pini e le cicute sembrano mormorare."
 		      CR>)>>
 
 <ROUTINE MOUNTAIN-RANGE-F ()
 	 <COND (<VERB? CLIMB-UP CLIMB-DOWN CLIMB-FOO>
-		<TELL "Don't you believe me? The mountains are impassable!"
+		<TELL "Non mi credi? Le montagne sono invalicabili!"
 		      CR>)>>
 
 <ROUTINE WATER-F ("AUX" AV W PI?)
@@ -242,12 +242,12 @@ to brush them with." CR>)
 	 <COND (<VERB? OPEN CLOSE>
 		<SETG KITCHEN-WINDOW-FLAG T>
 		<OPEN-CLOSE ,KITCHEN-WINDOW
-"With great effort, you open the window far enough to allow entry."
-"The window closes (more easily than it opened).">)
+"Con grande sforzo, apri la finestra abbastanza da poter entrare."
+"La finestra si chiude (più facilmente di quanto si sia aperta).">)
 	       (<AND <VERB? EXAMINE>
 		     <NOT ,KITCHEN-WINDOW-FLAG>>
 		<TELL
-"The window is slightly ajar, but not enough to allow entry." CR>)
+"La finestra è leggermente socchiusa, ma non abbastanza da poter entrare." CR>)
 	       (<VERB? WALK BOARD THROUGH>
 		<COND (<EQUAL? ,HERE ,KITCHEN>
 		       <DO-WALK ,P?EAST>)
@@ -255,11 +255,11 @@ to brush them with." CR>)
 		       <DO-WALK ,P?WEST>)>
 		<RTRUE>)
 	       (<VERB? LOOK-INSIDE>
-		<TELL "You can see ">
+		<TELL "Puoi vedere ">
 		<COND (<EQUAL? ,HERE ,KITCHEN>
-		       <TELL "a clear area leading towards a forest." CR>)
+		       <TELL "uno spiazzo libero che conduce verso un bosco." CR>)
 		      (T
-		       <TELL "what appears to be a kitchen." CR>)>)>>
+		       <TELL "quella che sembra essere una cucina." CR>)>)>>
 
 <ROUTINE GHOSTS-F ()
 	 <COND (<VERB? TELL>

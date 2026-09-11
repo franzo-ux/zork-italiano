@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Zork I — Edizione italiana</title>
-    <link rel="stylesheet" href="source/web-zmachine/glkote.css" />
+    <link rel="stylesheet" href="glkote.css" />
     <style>
       body { margin: 0; min-height: 100vh; background: #10150f; color: #d8d7bd; font-family: ui-monospace, monospace; }
       #gameport { box-sizing: border-box; min-height: 100vh; padding: 2rem; }
@@ -13,11 +13,11 @@
   </head>
   <body>
     <div id="gameport"><div id="windowport"></div><div id="loadingpane">Caricamento…</div><div id="errorpane" style="display:none"><div id="errorcontent"></div></div></div>
-    <script src="source/web-zmachine/lib/jquery-1.12.4.min.js"></script>
-    <script src="source/web-zmachine/lib/glkote.min.js"></script>
-    <script src="source/web-zmachine/lib/zvm.min.js"></script>
+    <script src="lib/jquery-1.12.4.min.js"></script>
+    <script src="lib/glkote.min.js"></script>
+    <script src="lib/zvm.min.js"></script>
     <script>
-      fetch("source/zork-it/zork1.z3").then(response => {
+      fetch("../zork-it/zork1.z3").then(response => {
         if (!response.ok) throw new Error(`Storia non disponibile (${response.status})`);
         return response.arrayBuffer();
       }).then(story => {
