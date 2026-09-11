@@ -51,27 +51,27 @@ che è ">
 		<COND (<AND <EQUAL? ,PRSI ,PUTTY>
 			    <IN? ,PRSI ,WINNER>>
 		       <JIGS-UP
-"Well, you seem to have been brushing your teeth with some sort of
-glue. As a result, your mouth gets glued together (with your nose)
-and you die of respiratory failure.">)
+"Sembra proprio che tu ti sia lavato i denti con una specie di
+colla. Di conseguenza la bocca ti si incolla (insieme al naso)
+e muori per asfissia.">)
 		      (<NOT ,PRSI>
 		       <TELL
-"Dental hygiene is highly recommended, but I'm not sure what you want
-to brush them with." CR>)
+"L'igiene dentale è altamente raccomandata, ma non so con cosa vuoi
+lavarteli." CR>)
 		      (T
-		       <TELL "A nice idea, but with a " D ,PRSI "?" CR>)>)>>
+		       <TELL "Un'idea niente male, ma con " D ,PRSI "?" CR>)>)>>
 
 <ROUTINE GRANITE-WALL-F ()
 	 <COND (<EQUAL? ,HERE ,NORTH-TEMPLE>
 		<COND (<VERB? FIND>
 		       <TELL "Qui la parete ovest è di granito massiccio." CR>)
 		      (<VERB? TAKE RAISE LOWER>
-		       <TELL "It's solid granite." CR>)>)
+		       <TELL "È di granito massiccio." CR>)>)
 	       (<EQUAL? ,HERE ,TREASURE-ROOM>
 		<COND (<VERB? FIND>
 		       <TELL "Qui la parete est è di granito massiccio." CR>)
 		      (<VERB? TAKE RAISE LOWER>
-		       <TELL "It's solid granite." CR>)>)
+		       <TELL "È di granito massiccio." CR>)>)
 	       (<EQUAL? ,HERE ,SLIDE-ROOM>
 		<COND (<VERB? FIND READ>
 		       <TELL "C'è scritto soltanto \"Parete di granito\"." CR>)
@@ -206,7 +206,7 @@ to brush them with." CR>)
 			    <VERB? TAKE>
 			    <NOT ,PRSI>>
 		       <TELL
-"It's in the bottle. Perhaps you should take that instead." CR>)
+"È nella bottiglia. Forse dovresti prendere quella invece." CR>)
 		      (T
 		       <TELL "L'acqua scivola tra le dita." CR>)>)
 	       (.PI?

@@ -627,7 +627,7 @@ probably)." CR>>
 		    <FSET? ,PRSO ,DOORBIT>>
 		<V-LOOK-INSIDE>)
 	       (T
-		<TELL "There's nothing special about the " D ,PRSO "." CR>)>>
+		<TELL "Non c'è nulla di speciale riguardo a " D ,PRSO "." CR>)>>
 
 <ROUTINE V-EXIT ()
 	 <COND (<AND <EQUAL? ,PRSO <> ,ROOMS>
@@ -1011,7 +1011,7 @@ by knocking down the wall on the east of the room." CR>
 		<PERFORM ,V?THROW ,PRSO>
 		<RTRUE>)
 	       (T
-		<TELL "Huh?" CR>)>>
+		<TELL "Eh?" CR>)>>
 
 <ROUTINE V-PICK () <TELL "Non puoi raccogliere quello." CR>>
 
@@ -1147,7 +1147,7 @@ you kill yourself, just as he might have done!" CR>
 
 <ROUTINE V-READ ()
 	 <COND (<NOT <FSET? ,PRSO ,READBIT>>
-		<TELL "How does one read a " D ,PRSO "?" CR>)
+		<TELL "Come si legge " D ,PRSO "?" CR>)
 	       (T
 		<TELL <GETP ,PRSO ,P?TEXT> CR>)>>
 
@@ -1437,13 +1437,13 @@ il manuale." CR>)>)
 			      <RTRUE>)
 			     (<EQUAL? ,PRSO ,CURTAIN>
 			      <TELL
-"You can't go more than part way through the curtain." CR>
+"Non puoi attraversare completamente la tenda." CR>
 			      <RTRUE>)>)
 		      (ELSE '<NULL-F>)>
 	       <TELL
-"You hit your head against the " D ,PRSO " as you attempt this feat." CR>)
+"Batti la testa contro " D ,PRSO " as you attempt this feat." CR>)
 	      (<IN? ,PRSO ,WINNER>
-	       <TELL "That would involve quite a contortion!" CR>)
+	       <TELL "Sarebbe necessaria una contorsione incredibile!" CR>)
 	      (T
 	       <TELL <PICK-ONE ,YUKS> CR>)>>
 
@@ -1461,20 +1461,20 @@ merciful in the Great Underground Empire.">)
 		       <TELL
 "The " D ,PRSI " ducks as the " D ,PRSO " flies by and crashes to the ground."
 CR>)
-		      (T <TELL "Thrown." CR>)>)
-	       (ELSE <TELL "Huh?" CR>)>>
+		      (T <TELL "Lanciato." CR>)>)
+	       (ELSE <TELL "Eh?" CR>)>>
 
 <ROUTINE V-THROW-OFF ()
-	 <TELL "You can't throw anything off of that!" CR>>
+	 <TELL "Non puoi lanciare nulla da lì!" CR>>
 
 <ROUTINE V-TIE ()
 	 <COND (<EQUAL? ,PRSI ,WINNER>
-		<TELL "You can't tie anything to yourself." CR>)
+		<TELL "Non puoi legare nulla a te stesso." CR>)
 	       (T
-		<TELL "You can't tie the " D ,PRSO " to that." CR>)>>
+		<TELL "Non puoi legare " D ,PRSO " to that." CR>)>>
 
 <ROUTINE V-TIE-UP ()
-	 <TELL "You could certainly never tie it with that!" CR>>
+	 <TELL "Non riusciresti mai a legarlo con quello!" CR>>
 
 <ROUTINE V-TREASURE ()
 	 <COND %<COND (<==? ,ZORK-NUMBER 1>

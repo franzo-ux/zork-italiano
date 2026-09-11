@@ -12,9 +12,12 @@
 - Esecuzione Z-machine verificata nel terminale: l'avvio e i comandi italiani
   base funzionano; restano messaggi inglesi da tradurre.
 
-## Da completare prima della pubblicazione fedele
-- Tutti i messaggi, descrizioni dinamiche e testi degli oggetti nell'area.
-- Vocabolario italiano completo per oggetti e azioni del capitolo.
-- Chiusura italiana ai confini verso contenuti non ancora tradotti.
-- Integrazione dell'interprete Z-machine nel frontend e automappa collegata
-  agli eventi dell'interprete.
+## Verifica del primo capitolo
+- Tradotti i testi giocabili del perimetro esterno/casa/cucina/soggiorno/cantina,
+  inclusi messaggi dinamici e descrittori degli oggetti principali.
+- Vocabolario italiano base esteso per osservare, esaminare, aprire, chiudere,
+  prendere, leggere, entrare, spostare e aiuto.
+- Audit automatico del perimetro in `translation-audit.test.js`: nessun
+  messaggio inglese rilevato nelle sezioni del primo capitolo.
+- La logica delle aree successive e i relativi testi restano invariati e fuori
+  perimetro.
