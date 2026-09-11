@@ -543,15 +543,15 @@ steep metal ramp which is unclimbable." CR>)
 
 <ROUTINE CHIMNEY-F ()
 	 <COND (<VERB? EXAMINE>
-		<TELL "The chimney leads ">
+		<TELL "Il camino conduce ">
 		<COND (<==? ,HERE ,KITCHEN>
-		       <TELL "down">)
-		      (T <TELL "up">)>
-		<TELL "ward, and looks climbable." CR>)>>
+		       <TELL "in basso">)
+		      (T <TELL "in alto">)>
+		<TELL ", e sembra scalabile." CR>)>>
 
 <ROUTINE UP-CHIMNEY-FUNCTION ("AUX" F)
   <COND (<NOT <SET F <FIRST? ,WINNER>>>
-	 <TELL "Going up empty-handed is a bad idea." CR>
+	 <TELL "Salire a mani vuote non è una buona idea." CR>
 	 <RFALSE>)
 	(<AND <OR <NOT <SET F <NEXT? .F>>>
 		  <NOT <NEXT? .F>>>
@@ -560,7 +560,7 @@ steep metal ramp which is unclimbable." CR>)
 		<FCLEAR ,TRAP-DOOR ,TOUCHBIT>)>
 	 <RETURN ,KITCHEN>)
 	(T
-	 <TELL "You can't get up there with what you're carrying." CR>
+	 <TELL "Con quello che porti non puoi salire lassù." CR>
 	 <RFALSE>)>>
 
 <ROUTINE TRAP-DOOR-EXIT ()
@@ -568,7 +568,7 @@ steep metal ramp which is unclimbable." CR>)
 		<COND (<FSET? ,TRAP-DOOR ,OPENBIT>
 		       <RETURN ,CELLAR>)
 		      (T
-		       <TELL "The trap door is closed." CR>
+		       <TELL "La botola è chiusa." CR>
 		       <THIS-IS-IT ,TRAP-DOOR>
 		       <RFALSE>)>)
 	       (T
@@ -577,34 +577,32 @@ steep metal ramp which is unclimbable." CR>)
 
 <ROUTINE RUG-FCN ()
    <COND (<VERB? RAISE>
-	  <TELL "The rug is too heavy to lift">
+	  <TELL "Il tappeto è troppo pesante da sollevare">
 	  <COND (,RUG-MOVED
 		 <TELL "." CR>)
 		(T
 		 <TELL
-", but in trying to take it you have
-noticed an irregularity beneath it." CR>)>)
+", ma tentando di sollevarlo hai notato qualcosa di strano sotto di esso." CR>)>)
 	 (<VERB? MOVE PUSH>
 	  <COND (,RUG-MOVED
 		 <TELL
-"Having moved the carpet previously, you find it impossible to move
-it again." CR>)
+"Dopo aver già spostato il tappeto, scopri che è impossibile muoverlo di nuovo." CR>)
 		(T
 		 <TELL
-"With a great effort, the rug is moved to one side of the room, revealing
-the dusty cover of a closed trap door." CR>
+"Con grande sforzo, sposti il tappeto da un lato della stanza, rivelando
+il coperchio polveroso di una botola chiusa." CR>
 		 <FCLEAR ,TRAP-DOOR ,INVISIBLE>
 		 <THIS-IS-IT ,TRAP-DOOR>
 		 <SETG RUG-MOVED T>)>)
 	 (<VERB? TAKE>
 	  <TELL
-"The rug is extremely heavy and cannot be carried." CR>)
+"Il tappeto è estremamente pesante e non si può trasportare." CR>)
 	 (<AND <VERB? LOOK-UNDER>
 	       <NOT ,RUG-MOVED>
 	       <NOT <FSET? ,TRAP-DOOR ,OPENBIT>>>
 	  <TELL
-"Underneath the rug is a closed trap door. As you drop the corner of the
-rug, the trap door is once again concealed from view." CR>)
+"Sotto il tappeto c'è una botola chiusa. Quando lasci andare l'angolo del
+tappeto, la botola torna a essere nascosta alla vista." CR>)
 	 (<VERB? CLIMB-ON>
 	  <COND (<AND <NOT ,RUG-MOVED>
 		      <NOT <FSET? ,TRAP-DOOR ,OPENBIT>>>
