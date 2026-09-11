@@ -29,6 +29,7 @@
       .mini-node text { fill: #c7cd8a; font: 10px ui-monospace, monospace; text-anchor: middle; }
       .mini-node.current rect { fill: #d9da94; stroke: #fff8ca; }
       .mini-node.current text { fill: #182016; }
+      .mini-node.hidden, .mini-link.hidden { display: none; }
       @media (max-width: 600px) { #gameport { padding-bottom: 7rem; } .minimap { bottom: .5rem; } #minimap { height: 75px; } }
     </style>
   </head>
@@ -37,13 +38,14 @@
     <section class="minimap" aria-label="Minimappa dell'area esplorata">
       <div class="minimap-head"><strong>Minimappa</strong><span>prototipo · area conosciuta</span></div>
       <svg id="minimap" viewBox="0 0 760 110" role="img" aria-label="Mappa dell'area iniziale">
-        <line class="mini-link" x1="110" y1="55" x2="300" y2="55"/><line class="mini-link" x1="300" y1="55" x2="490" y2="55"/><line class="mini-link" x1="490" y1="55" x2="650" y2="55"/>
-        <g class="mini-node current" transform="translate(110 55)"><title>A ovest della casa</title><rect x="-48" y="-18" width="96" height="36" rx="3"/><text y="4">ESTERNO</text></g>
-        <g class="mini-node" transform="translate(300 55)"><title>Ingresso</title><rect x="-42" y="-18" width="84" height="36" rx="3"/><text y="4">INGRESSO</text></g>
-        <g class="mini-node" transform="translate(490 55)"><title>Cucina</title><rect x="-38" y="-18" width="76" height="36" rx="3"/><text y="4">CUCINA</text></g>
-        <g class="mini-node" transform="translate(650 55)"><title>Soggiorno</title><rect x="-42" y="-18" width="84" height="36" rx="3"/><text y="4">SOGGIORNO</text></g>
+        <line id="link-ingresso" class="mini-link hidden" x1="110" y1="55" x2="300" y2="55"/><line id="link-cucina" class="mini-link hidden" x1="300" y1="55" x2="490" y2="55"/><line id="link-soggiorno" class="mini-link hidden" x1="490" y1="55" x2="650" y2="55"/>
+        <g id="node-esterno" class="mini-node current" transform="translate(110 55)"><title>A ovest della casa</title><rect x="-48" y="-18" width="96" height="36" rx="3"/><text y="4">ESTERNO</text></g>
+        <g id="node-ingresso" class="mini-node hidden" transform="translate(300 55)"><title>Ingresso</title><rect x="-42" y="-18" width="84" height="36" rx="3"/><text y="4">INGRESSO</text></g>
+        <g id="node-cucina" class="mini-node hidden" transform="translate(490 55)"><title>Cucina</title><rect x="-38" y="-18" width="76" height="36" rx="3"/><text y="4">CUCINA</text></g>
+        <g id="node-soggiorno" class="mini-node hidden" transform="translate(650 55)"><title>Soggiorno</title><rect x="-42" y="-18" width="84" height="36" rx="3"/><text y="4">SOGGIORNO</text></g>
       </svg>
-    </section><div id="gameport"><div id="windowport"></div><div id="loadingpane">Caricamento…</div><div id="errorpane" style="display:none"><div id="errorcontent"></div></div></div>
+    </section>
+    <div id="gameport"><div id="windowport"></div><div id="loadingpane">Caricamento…</div><div id="errorpane" style="display:none"><div id="errorcontent"></div></div></div>
     <script src="source/web-zmachine/lib/jquery-1.12.4.min.js"></script>
     <script src="source/web-zmachine/lib/glkote.min.js"></script>
     <script src="source/web-zmachine/lib/zvm.min.js"></script>
@@ -58,6 +60,20 @@
       }).catch(error => {
         document.querySelector("#errorpane").style.display = "block";
         document.querySelector("#errorcontent").textContent = error.message;
+      });
+      const visited = new Set(["esterno"]);
+      document.querySelector("#gameport").addEventListener("keydown", event => {
+        if (event.key !== "Enter") return;
+        const command = event.target.value.trim().toLowerCase();
+        const next = command.includes("soggiorno") || command.includes("salone") ? "soggiorno" : command.includes("cucina") || command === "entra" || command === "entrare" ? "cucina" : command.includes("casa") ? "ingresso" : null;
+        if (next) visited.add(next);
+        for (const id of ["ingresso", "cucina", "soggiorno"]) {
+          document.querySelector(`#node-${id}`)?.classList.toggle("hidden", !visited.has(id));
+        }
+        for (const id of ["ingresso", "cucina", "soggiorno"]) {
+          document.querySelector(`#link-${id}`)?.classList.toggle("hidden", !visited.has(id));
+        }
+        document.querySelectorAll(".mini-node").forEach(node => node.classList.toggle("current", node.id === `node-${next || "esterno"}`));
       });
     </script>
   </body>
