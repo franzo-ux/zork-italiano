@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="dialog.css" />
     <style>
       body { margin: 0; min-height: 100vh; background: #10150f; color: #d8d7bd; font-family: ui-monospace, monospace; }
-      #gameport { position: relative !important; box-sizing: border-box; width: min(100%, 760px); min-height: 100vh; margin: 0 auto; padding: 0; }
+      #gameport { position: relative !important; box-sizing: border-box; width: min(100%, 760px); min-height: 100vh; margin: 0 auto; padding: 0 0 8.5rem; }
       #windowport { max-width: 760px; margin: auto; }
       .brand { position: relative; z-index: 2; max-width: 760px; margin: 0 auto 1.5rem; border-bottom: 1px solid #56614a; padding-bottom: 1rem; display: flex; align-items: baseline; justify-content: space-between; }
       .brand strong { color: #eef0c2; font: 3.2rem/.8 Georgia, serif; letter-spacing: -.08em; }
@@ -18,7 +18,7 @@
       .BufferLine, .GridLine, .Style_normal, .Style_input, .Input { color: #b6c77a !important; font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace !important; }
       .Input { background: #10150f !important; border-color: #8e9568 !important; caret-color: #e6edb0 !important; }
       #loadingpane { background: #10150f !important; color: #b6c77a !important; }
-      .minimap { width: min(100%, 760px); margin: 0 auto 1.25rem; border: 1px solid #56614a; padding: .65rem .8rem .8rem; color: #a9ad89; }
+      .minimap { position: fixed; z-index: 10; left: 50%; bottom: .75rem; transform: translateX(-50%); width: min(calc(100% - 2rem), 760px); margin: 0; border: 1px solid #56614a; padding: .55rem .8rem .65rem; background: #10150f; color: #a9ad89; }
       .minimap-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: .35rem; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
       .minimap-head strong { color: #d9da94; font-weight: 500; }
       .minimap-head span { font-size: .6rem; opacity: .8; }
@@ -28,7 +28,7 @@
       .mini-node text { fill: #c7cd8a; font: 10px ui-monospace, monospace; text-anchor: middle; }
       .mini-node.current rect { fill: #d9da94; stroke: #fff8ca; }
       .mini-node.current text { fill: #182016; }
-      @media (max-width: 600px) { .minimap { margin-bottom: 1rem; } #minimap { height: 90px; } }
+      @media (max-width: 600px) { #gameport { padding-bottom: 7rem; } .minimap { bottom: .5rem; } #minimap { height: 75px; } }
     </style>
   </head>
   <body>
