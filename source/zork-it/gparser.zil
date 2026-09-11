@@ -152,14 +152,14 @@
 	       <TELL ">">
 	       <READ ,P-INBUF ,P-LEXV>)>
 	<SETG P-LEN <GETB ,P-LEXV ,P-LEXWORDS>>
-	<COND (<ZERO? ,P-LEN> <TELL "I beg your pardon?" CR> <RFALSE>)>
+	<COND (<ZERO? ,P-LEN> <TELL "Come, scusa?" CR> <RFALSE>)>
 	<COND (<EQUAL? <SET WRD <GET ,P-LEXV .PTR>> ,W?OOPS>
 	       <COND (<EQUAL? <GET ,P-LEXV <+ .PTR ,P-LEXELEN>>
 			      ,W?PERIOD ,W?COMMA>
 		      <SET PTR <+ .PTR ,P-LEXELEN>>
 		      <SETG P-LEN <- ,P-LEN 1>>)>
 	       <COND (<NOT <G? ,P-LEN 1>>
-		      <TELL "I can't help your clumsiness." CR>
+		      <TELL "Non posso rimediare alla tua goffaggine." CR>
 		      <RFALSE>)
 		     (<GET ,OOPS-TABLE ,O-PTR>
 		      <COND (<AND <G? ,P-LEN 2>
@@ -183,7 +183,7 @@
 		      <INBUF-STUFF ,OOPS-INBUF ,P-INBUF>)
 		     (T
 		      <PUT ,OOPS-TABLE ,O-END <>>
-		      <TELL "There was no word to replace!" CR>
+		      <TELL "Non c'era nessuna parola da sostituire!" CR>
 		      <RFALSE>)>)
 	      (T
 	       <COND (<NOT <EQUAL? .WRD ,W?AGAIN ,W?G>>
@@ -329,7 +329,7 @@
 					    <PUT ,P-ITBL ,P-PREP1N .WRD>)>)
 				    (<EQUAL? ,P-NCN 2>
 				     <TELL
-"There were too many nouns in that sentence." CR>
+"Ci sono troppi sostantivi in quella frase." CR>
 				     <RFALSE>)
 				    (T
 				     <SETG P-NCN <+ ,P-NCN 1>>
@@ -707,7 +707,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 <ROUTINE SYNTAX-CHECK ("AUX" SYN LEN NUM OBJ
 		       	    (DRIVE1 <>) (DRIVE2 <>) PREP VERB TMP)
 	<COND (<ZERO? <SET VERB <GET ,P-ITBL ,P-VERB>>>
-	       <TELL "There was no verb in that sentence!" CR>
+	       <TELL "In quella frase non c'era nessun verbo!" CR>
 	       <RFALSE>)>
 	<SET SYN <GET ,VERBS <- 255 .VERB>>>
 	<SET LEN <GETB .SYN 0>>
@@ -731,7 +731,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 		       <COND (<OR .DRIVE1 .DRIVE2> <RETURN>)
 			     (T
 			      <TELL
-"That sentence isn't one I recognize." CR>
+"Non riconosco quella frase." CR>
 			      <RFALSE>)>)
 		      (T <SET SYN <REST .SYN ,P-SYNLEN>>)>>
 	<COND (<AND .DRIVE1
@@ -751,7 +751,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 	       <PUT ,P-PRSI 1 .OBJ>
 	       <SYNTAX-FOUND .DRIVE2>)
 	      (<EQUAL? .VERB ,ACT?FIND>
-	       <TELL "That question can't be answered." CR>
+	       <TELL "Non si può rispondere a quella domanda." CR>
 	       <RFALSE>)
 	      (<NOT <EQUAL? ,WINNER ,PLAYER>>
 	       <CANT-ORPHAN>)
@@ -775,7 +775,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 	       <RFALSE>)>>
 
 <ROUTINE CANT-ORPHAN ()
-	 <TELL "\"I don't understand! What are you referring to?\"" CR>
+	 <TELL "\"Non capisco! A cosa ti riferisci?\"" CR>
 	 <RFALSE>>
 
 
@@ -1063,7 +1063,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 		     <ZERO? ,P-GWIMBIT>>
 		<COND (.VRB
 		       <TELL
-"There seems to be a noun missing in that sentence!" CR>)>
+"Sembra mancare un sostantivo nella frase!" CR>)>
 		<RFALSE>)>
 	 <COND (<OR <NOT <EQUAL? ,P-GETFLAGS ,P-ALL>> <ZERO? ,P-SLOCBITS>>
 		<SETG P-SLOCBITS -1>)>
@@ -1111,7 +1111,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 				    <SETG P-OFLAG T>)
 				   (.VRB
 				    <TELL
-"There seems to be a noun missing in that sentence!" CR>)>
+"Sembra mancare un sostantivo nella frase!" CR>)>
 			     <SETG P-NAM <>>
 			     <SETG P-ADJ <>>
 			     <RFALSE>)>)>
@@ -1258,7 +1258,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 			       <COND (<EQUAL? .OBJ ,IT>
 				      <COND (<NOT <ACCESSIBLE? ,P-IT-OBJECT>>
 					     <TELL
-"I don't see what you're referring to." CR>
+"Non vedo a cosa ti riferisci." CR>
 					     <RFALSE>)
 					    (T
 					     <SET OBJ ,P-IT-OBJECT>)>)>
@@ -1280,7 +1280,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 					     <COND (<EQUAL? .OBJ
 							    ,NOT-HERE-OBJECT>
 						    <TELL
-"You don't have that!" CR>
+"Non hai quell'oggetto!" CR>
 						    <RFALSE>)>
 					     <TELL "You don't have the ">
 					     <PRINTD .OBJ>

@@ -84,9 +84,9 @@
 			  <SET V <PERFORM ,PRSA>>
 			  <SETG PRSO <>>)
 			 (<NOT ,LIT>
-			  <TELL "It's too dark to see." CR>)
+			  <TELL "È troppo buio per vedere." CR>)
 			 (T
-			  <TELL "It's not clear what you're referring to." CR>
+			  <TELL "Non è chiaro a cosa ti riferisci." CR>
 			  <SET V <>>)>)
 		  (T
 		   <SETG P-NOT-HERE 0>
@@ -109,7 +109,7 @@
 					 <TELL "n't here." CR>)
 					(<NOT .TMP>
 					 <TELL
-"There's nothing here you can take." CR>)>
+"Qui non c'è nulla che tu possa prendere." CR>)>
 				  <RETURN>)
 				 (T
 				  <COND (.PTBL <SET OBJ1 <GET ,P-PRSO .CNT>>)
@@ -193,7 +193,7 @@
 	<SET OI ,PRSI>
 	<COND (<AND <EQUAL? ,IT .I .O>
 		    <NOT <ACCESSIBLE? ,P-IT-OBJECT>>>
-	       <TELL "I don't see what you are referring to." CR>
+	       <TELL "Non vedo a cosa ti riferisci." CR>
 	       <RFATAL>)>
 	<COND (<==? .O ,IT> <SET O ,P-IT-OBJECT>)>
 	<COND (<==? .I ,IT> <SET I ,P-IT-OBJECT>)>
@@ -245,7 +245,7 @@
 	<SET OI ,PRSI>
 	<COND (<AND <EQUAL? ,IT .I .O>
 		    <NOT <ACCESSIBLE? ,P-IT-OBJECT>>>
-	       <TELL "I don't see what you are referring to." CR>
+	       <TELL "Non vedo a cosa ti riferisci." CR>
 	       <RFATAL>)>
 	<COND (<==? .O ,IT> <SET O ,P-IT-OBJECT>)>
 	<COND (<==? .I ,IT> <SET I ,P-IT-OBJECT>)>

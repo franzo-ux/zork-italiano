@@ -28,7 +28,7 @@
 
 <ROUTINE V-INVENTORY ()
 	 <COND (<FIRST? ,WINNER> <PRINT-CONT ,WINNER>)
-	       (T <TELL "You are empty-handed." CR>)>>
+	       (T <TELL "Hai le mani vuote." CR>)>>
 
 <ROUTINE FINISH ("AUX" WRD)
 	 <V-SCORE>
@@ -55,14 +55,14 @@ game position, or end this session of the game?|
 <ROUTINE V-QUIT ("AUX" SCOR)
 	 <V-SCORE>
 	 <TELL 
-"Do you wish to leave the game? (Y is affirmative): ">
+"Vuoi uscire dal gioco? (S per confermare): ">
 	 <COND (<YES?>
 		<QUIT>)
 	       (ELSE <TELL "Ok." CR>)>>
 
 <ROUTINE V-RESTART ()
 	 <V-SCORE T>
-	 <TELL "Do you wish to restart? (Y is affirmative): ">
+	 <TELL "Vuoi ricominciare? (S per confermare): ">
 	 <COND (<YES?>
 		<TELL "Restarting." CR>
 		<RESTART>
@@ -123,7 +123,7 @@ Release ">
 <ROUTINE V-VERIFY ()
 	 <TELL "Verifying disk..." CR>
 	 <COND (<VERIFY>
-		<TELL "The disk is correct." CR>)
+		<TELL "Il disco è corretto." CR>)
 	       (T
 		<TELL CR "** Disk Failure **" CR>)>>
 
@@ -163,12 +163,12 @@ Release ">
 			      '(<NULL-F> <RTRUE>))>
 		      (T
 		       <TELL
-"He's wide awake, or haven't you noticed..." CR>)>)
+"È perfettamente sveglio, non te ne sei accorto?" CR>)>)
 	       (T
 		<TELL "The " D ,PRSO " isn't sleeping." CR>)>>
 
 <ROUTINE V-ANSWER ()
-	 <TELL "Nobody seems to be awaiting your answer." CR>
+	 <TELL "Sembra che nessuno stia aspettando una tua risposta." CR>
 	 <SETG P-CONT <>>
 	 <SETG QUOTE-FLAG <>>
 	 <RTRUE>>
@@ -193,10 +193,10 @@ Release ">
 			'<TELL "You can't." CR>)>)>>
 
 <ROUTINE V-BACK ()
-	 <TELL "Sorry, my memory is poor. Please give a direction." CR>>
+	 <TELL "Scusa, ho poca memoria. Specifica una direzione." CR>>
 
 <ROUTINE V-BLAST ()
-	 <TELL "You can't blast anything by using words." CR>>
+	 <TELL "Non puoi far saltare nulla usando le parole." CR>>
 
 <ROUTINE PRE-BOARD ("AUX" AV)
 	 <SET AV <LOC ,WINNER>>
