@@ -157,7 +157,7 @@ Release ">
 	 <COND (<FSET? ,PRSO ,ACTORBIT>
 		<COND %<COND (<==? ,ZORK-NUMBER 1>
 			      '(<L? <GETP ,PRSO ,P?STRENGTH> 0>
-		                <TELL "The " D ,PRSO " is rudely awakened." CR>
+		                <TELL "Il " D ,PRSO " si sveglia bruscamente." CR>
 		                <AWAKEN ,PRSO>))
 			     (T
 			      '(<NULL-F> <RTRUE>))>
@@ -165,7 +165,7 @@ Release ">
 		       <TELL
 "È perfettamente sveglio, non te ne sei accorto?" CR>)>)
 	       (T
-		<TELL "The " D ,PRSO " isn't sleeping." CR>)>>
+		<TELL "Il " D ,PRSO " non sta dormendo." CR>)>>
 
 <ROUTINE V-ANSWER ()
 	 <TELL "Sembra che nessuno stia aspettando una tua risposta." CR>
@@ -326,50 +326,50 @@ Release ">
 			      <EQUAL? .OBJ <> ,TREE>
 			      <GLOBAL-IN? ,TREE ,HERE>>)
 		       (ELSE '<NULL-F>)>
-		<TELL "There are no climbable trees here." CR>
+		<TELL "Qui non ci sono alberi adatti da scalare." CR>
 		<RTRUE>)
 	       (<EQUAL? .OBJ <> ,ROOMS>
 		<TELL "Non puoi andare da quella parte." CR>)
 	       (T
-	        <TELL "You can't do that!" CR>)>>
+	        <TELL "Non puoi farlo!" CR>)>>
 
 <ROUTINE V-CLOSE ()
 	 <COND (<AND <NOT <FSET? ,PRSO ,CONTBIT>>
 		     <NOT <FSET? ,PRSO ,DOORBIT>>>
-		<TELL "You must tell me how to do that to a " D ,PRSO "." CR>)
+		<TELL "Devi dirmi come fare questo a " D ,PRSO "." CR>)
 	       (<AND <NOT <FSET? ,PRSO ,SURFACEBIT>>
 		     <NOT <EQUAL? <GETP ,PRSO ,P?CAPACITY> 0>>>
 		<COND (<FSET? ,PRSO ,OPENBIT>
 		       <FCLEAR ,PRSO ,OPENBIT>
 		       <TELL "Closed." CR>
 		       <COND (<AND ,LIT <NOT <SETG LIT <LIT? ,HERE>>>>
-			      <TELL "It is now pitch black." CR>)>
+			      <TELL "Ora è buio pesto." CR>)>
 		       <RTRUE>)
 		      (T
 	 	       <TELL "It is already closed." CR>)>)
 	       (<FSET? ,PRSO ,DOORBIT>
 		<COND (<FSET? ,PRSO ,OPENBIT>
 		       <FCLEAR ,PRSO ,OPENBIT>
-		       <TELL "The " D ,PRSO " is now closed." CR>)
+		       <TELL "Il " D ,PRSO " ora è chiuso." CR>)
 		      (T
 	 	       <TELL "It is already closed." CR>)>)
 	       (T
-		<TELL "You cannot close that." CR>)>>
+		<TELL "Non puoi chiudere quello." CR>)>>
 
 <ROUTINE V-COMMAND ()
 	 <COND (<FSET? ,PRSO ,ACTORBIT>
 		<TELL "The " D ,PRSO " pays no attention." CR>)
 	       (T
-		<TELL "You cannot talk to that!" CR>)>>
+		<TELL "Non puoi parlare con quello!" CR>)>>
 
 <ROUTINE V-COUNT ()
 	 <COND (<EQUAL? ,PRSO ,BLESSINGS>
 	 	<TELL "Well, for one, you are playing Zork..." CR>)
 	       (T
-		<TELL "You have lost your mind." CR>)>>
+		<TELL "Hai perso la testa." CR>)>>
 
 <ROUTINE V-CROSS ()
-	 <TELL "You can't cross that!" CR>>
+	 <TELL "Non puoi attraversarlo!" CR>>
 
 <ROUTINE V-CURSES ()
 	 <COND (,PRSO
@@ -501,7 +501,7 @@ Release ">
 		      (<OR <NOT .NOBJ>
 			   <NOT <ACCESSIBLE? .NOBJ>>>
 		       <TELL
-"There isn't any water here." CR>)
+"Qui non c'è acqua." CR>)
 		      (<AND <ACCESSIBLE? .NOBJ>
 			    <NOT <IN? .NOBJ ,WINNER>>>
 		       <TELL
@@ -555,7 +555,7 @@ probably)." CR>>
 %<COND (<==? ,ZORK-NUMBER 2>
 	'<COND (,SPELL-VICTIM
 		<COND (<NOT ,SPELL-USED>
-		       <TELL "You must be more specific." CR>
+		       <TELL "Devi essere più preciso." CR>
 		       <RTRUE>)>
 		<COND (<OR <EQUAL? ,SPELL-USED ,W?FEEBLE ,W?FUMBLE ,W?FEAR>
 			   <EQUAL? ,SPELL-USED ,W?FREEZE ,W?FALL ,W?FERMENT>
@@ -614,7 +614,7 @@ probably)." CR>>
 	 <REMOVE .OBJ>
 	 <SETG LIT <LIT? ,HERE>>
 	 <COND (<AND .OLIT <NOT <EQUAL? .OLIT ,LIT>>>
-		<TELL "You are left in the dark..." CR>)>
+		<TELL "Rimani al buio..." CR>)>
 	 T>
 
 <ROUTINE V-ENTER ()
@@ -653,7 +653,7 @@ probably)." CR>>
 		       <PERFORM ,V?FILL ,PRSO ,WATER>
 		       <RTRUE>)
 		      (T
-		       <TELL "There is nothing to fill it with." CR>
+		       <TELL "Non c'è nulla con cui riempirlo." CR>
 		       <RTRUE>)>)>
 	 <COND (<EQUAL? ,PRSI ,WATER>
 		<RFALSE>)
@@ -672,7 +672,7 @@ probably)." CR>>
 		      (T
 		       <TELL "There's nothing to fill it with." CR>)>)
 	       (T
-		<TELL "You may know how to do that, but I don't." CR>)>>
+		<TELL "Forse tu sai come farlo, ma io no." CR>)>>
 
 <ROUTINE V-FIND ("AUX" (L <LOC ,PRSO>))
 	 <COND (<EQUAL? ,PRSO ,HANDS ,LUNGS>
@@ -682,9 +682,9 @@ somewhere." CR>)
 	       (<EQUAL? ,PRSO ,ME>
 		<TELL "You're around here somewhere..." CR>)
 	       (<EQUAL? .L ,GLOBAL-OBJECTS>
-		<TELL "You find it." CR>)
+		<TELL "Lo trovi." CR>)
 	       (<IN? ,PRSO ,WINNER>
-		<TELL "You have it." CR>)
+		<TELL "Ce l'hai." CR>)
 	       (<OR <IN? ,PRSO ,HERE>
 		    <GLOBAL-IN? ,PRSO ,HERE>
 		    <EQUAL? ,PRSO ,PSEUDO-OBJECT>>
@@ -778,7 +778,7 @@ D ,PRSO "." CR>)>)
 			      <SETG LIT <LIT? ,HERE>>)>
 		       <TELL "The " D ,PRSO " is now off." CR>
 		       <COND (<NOT ,LIT>
-			      <TELL "It is now pitch black." CR>)>)>)
+			      <TELL "Ora è buio pesto." CR>)>)>)
 	       (T
 		<TELL "You can't turn that off." CR>)>
 	 <RTRUE>>
@@ -865,7 +865,7 @@ inglesi: LOOK, NORTH, SOUTH, EAST, WEST, OPEN, TAKE, READ e INVENTORY." CR>>
 		<DESCRIBE-OBJECTS T>)>>
 
 <ROUTINE V-LOOK-BEHIND ()
-	 <TELL "There is nothing behind the " D ,PRSO "." CR>>
+	 <TELL "Non c'è nulla dietro " D ,PRSO "." CR>>
 
 <ROUTINE V-LOOK-INSIDE ()
 	 <COND (<FSET? ,PRSO ,DOORBIT>
@@ -877,7 +877,7 @@ D ,PRSO " è aperto, ma non riesco a vedere cosa ci sia oltre.">)
 		<CRLF>)
 	       (<FSET? ,PRSO ,CONTBIT>
 		<COND (<FSET? ,PRSO ,ACTORBIT>
-		       <TELL "There is nothing special to be seen." CR>)
+		       <TELL "Non c'è nulla di speciale da vedere." CR>)
 		      (<SEE-INSIDE? ,PRSO>
 		       <COND (<AND <FIRST? ,PRSO>
 				   <PRINT-CONT ,PRSO>>
@@ -885,14 +885,14 @@ D ,PRSO " è aperto, ma non riesco a vedere cosa ci sia oltre.">)
 			     %<COND (<==? ,ZORK-NUMBER 3>
 				     '(<FSET? ,PRSO ,SURFACEBIT>
 				       <TELL
-"There is nothing on the " D ,PRSO "." CR>))
+"Non c'è nulla su " D ,PRSO "." CR>))
 				    (ELSE '(<NULL-F> <RTRUE>))>
 			     (T
 			      <TELL "The " D ,PRSO " is empty." CR>)>)
 		      (T
 		       <TELL D ,PRSO " è chiuso." CR>)>)
 	       (T
-		<TELL "You can't look inside a " D ,PRSO "." CR>)>>
+		<TELL "Non puoi guardare dentro " D ,PRSO "." CR>)>>
 
 <ROUTINE V-LOOK-ON ()
 	 <COND (<FSET? ,PRSO ,SURFACEBIT>
@@ -902,7 +902,7 @@ D ,PRSO " è aperto, ma non riesco a vedere cosa ci sia oltre.">)
 		<TELL "Look on a " D ,PRSO "???" CR>)>>
 
 <ROUTINE V-LOOK-UNDER ()
-	 <TELL "There is nothing but dust there." CR>>
+	 <TELL "Lì non c'è altro che polvere." CR>>
 
 <ROUTINE V-LOWER () <HACK-HACK "Playing in this way with the ">>
 
@@ -996,7 +996,7 @@ by knocking down the wall on the east of the room." CR>
 		       <FSET ,PRSO ,OPENBIT>)>)
 	       (T
 		<TELL
-"You must tell me how to do that to a " D ,PRSO "." CR>)>>
+"Devi dirmi come fare questo a " D ,PRSO "." CR>)>>
 
 <ROUTINE V-OVERBOARD ("AUX" LOCN)
 	 <COND %<COND (<==? ,ZORK-NUMBER 1>
