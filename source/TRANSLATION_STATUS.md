@@ -6,7 +6,9 @@
 - Nomi italiani iniziali: casa, bosco, finestra, cassetta delle lettere,
   volantino.
 - Prime descrizioni e messaggi: lato ovest/est, titoli delle aree, stanze
-  principali della casa e messaggi della casa bianca.
+  principali della casa, cucina, soggiorno e messaggi della casa bianca.
+- Esecuzione Z-machine verificata nel terminale: l'avvio e i comandi italiani
+  base funzionano; restano messaggi inglesi da tradurre.
 
 ## Da completare prima della pubblicazione fedele
 - Tutti i messaggi, descrizioni dinamiche e testi degli oggetti nell'area.

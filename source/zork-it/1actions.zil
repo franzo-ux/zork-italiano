@@ -369,31 +369,30 @@ to brush them with." CR>)
 
 <ROUTINE BOARDED-WINDOW-FCN ()
 	 <COND (<VERB? OPEN>
-		<TELL "The windows are boarded and can't be opened." CR>)
+		<TELL "Le finestre sono sbarrate e non si possono aprire." CR>)
 	       (<VERB? MUNG>
-		<TELL "You can't break the windows open." CR>)>>
+		<TELL "Non puoi forzare le finestre." CR>)>>
 
 <ROUTINE NAILS-PSEUDO ()
 	 <COND (<VERB? TAKE>
 		<TELL
-"The nails, deeply imbedded in the door, cannot be removed." CR>)>>
+"I chiodi, conficcati profondamente nella porta, non si possono togliere." CR>)>>
 
 <ROUTINE CRACK-FCN ()
 	 <COND (<VERB? THROUGH>
-		<TELL "You can't fit through the crack." CR>)>>
+		<TELL "Non riesci a passare attraverso la fessura." CR>)>>
 
 <ROUTINE KITCHEN-FCN (RARG)
 	<COND (<EQUAL? .RARG ,M-LOOK>
 	       <TELL
-"You are in the kitchen of the white house. A table seems to
-have been used recently for the preparation of food. A passage
-leads to the west and a dark staircase can be seen leading
-upward. A dark chimney leads down and to the east is a small
-window which is ">
+"Sei nella cucina della casa bianca. Un tavolo sembra essere stato
+usato di recente per preparare del cibo. Un passaggio conduce a ovest
+e una scala buia sale verso l'alto. Un camino oscuro scende in basso e
+a est c'è una piccola finestra che è ">
 	       <COND (<FSET? ,KITCHEN-WINDOW ,OPENBIT>
-		      <TELL "open." CR>)
+		      <TELL "aperta." CR>)
 		     (T
-		      <TELL "slightly ajar." CR>)>)
+		      <TELL "leggermente socchiusa." CR>)>)
 	      (<==? .RARG ,M-BEG>
 	       <COND (<AND <VERB? CLIMB-UP> <EQUAL? ,PRSO ,STAIRS>>
 		      <DO-WALK ,P?UP>)
@@ -449,7 +448,7 @@ ZORK: The Great Underground Empire.|" CR>)>
 <ROUTINE LIVING-ROOM-FCN (RARG "AUX" RUG? TC)
 	<COND (<EQUAL? .RARG ,M-LOOK>
 	       <TELL
-"You are in the living room. There is a doorway to the east">
+"Sei nel soggiorno. A est c'è un passaggio">
 	       <COND (,MAGIC-FLAG
 		      <TELL
 ". To the
@@ -460,18 +459,18 @@ some strange gothic lettering, ">)
 ", a wooden
 door with strange gothic lettering to the west, which appears to be
 nailed shut, ">)>
-	       <TELL "a trophy case, ">
+	       <TELL "una vetrina dei trofei, ">
 	       <SET RUG? ,RUG-MOVED>
 	       <COND (<AND .RUG? <FSET? ,TRAP-DOOR ,OPENBIT>>
 		      <TELL
-		       "and a rug lying beside an open trap door.">)
+		       "e un tappeto accanto a una botola aperta.">)
 		     (.RUG?
-		      <TELL "and a closed trap door at your feet.">)
+		      <TELL "e una botola chiusa ai tuoi piedi.">)
 		     (<FSET? ,TRAP-DOOR ,OPENBIT>
-		      <TELL "and an open trap door at your feet.">)
+		      <TELL "e una botola aperta ai tuoi piedi.">)
 		     (T
 		      <TELL
-		       "and a large oriental rug in the center of the room.">)>
+		       "e un grande tappeto orientale al centro della stanza.">)>
 	       <CRLF>
 	       T)
 	      (<EQUAL? .RARG ,M-END>
