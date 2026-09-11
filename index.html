@@ -22,7 +22,7 @@
     <script src="source/web-zmachine/lib/glkote.min.js"></script>
     <script src="source/web-zmachine/lib/zvm.min.js"></script>
     <script>
-      fetch("zork1.z3").then(response => {
+      fetch("zork1.z3?v=5").then(response => {
         if (!response.ok) throw new Error(`Storia non disponibile (${response.status})`);
         return response.arrayBuffer();
       }).then(story => {
