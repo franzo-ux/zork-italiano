@@ -1244,7 +1244,7 @@ have, as the mainspring seems sprung.")>
       (NE TO NORTH-OF-HOUSE)
       (SE TO SOUTH-OF-HOUSE)
       (WEST TO FOREST-1)
-      (EAST "The door is boarded and you can't remove the boards.")
+      (EAST "La porta è sbarrata e non riesci a rimuovere le assi.")
       (SW TO STONE-BARROW IF WON-FLAG)
       (IN TO STONE-BARROW IF WON-FLAG)
       (ACTION WEST-HOUSE)
@@ -1254,8 +1254,8 @@ have, as the mainspring seems sprung.")>
 <ROOM STONE-BARROW
       (IN ROOMS)
       (LDESC
-"You are standing in front of a massive barrow of stone. In the east face
-is a huge stone door which is open. You cannot see into the dark of the tomb.")
+"Sei davanti a un enorme tumulo di pietra. Sul lato est c'è una gigantesca
+porta di pietra aperta. Non riesci a vedere nell'oscurità della tomba.")
       (DESC "Stone Barrow")
       (NE TO WEST-OF-HOUSE)
       (ACTION STONE-BARROW-FCN)
@@ -1452,7 +1452,7 @@ si estende a est e a ovest.")
       (IN ROOMS)
       (DESC "Soggiorno")
       (EAST TO KITCHEN)
-      (WEST TO STRANGE-PASSAGE IF MAGIC-FLAG ELSE "The door is nailed shut.")
+      (WEST TO STRANGE-PASSAGE IF MAGIC-FLAG ELSE "La porta è inchiodata e non si apre.")
       (DOWN PER TRAP-DOOR-EXIT)
       (ACTION LIVING-ROOM-FCN)
       (FLAGS RLANDBIT ONBIT SACREDBIT)

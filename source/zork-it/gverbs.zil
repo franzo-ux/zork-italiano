@@ -13,16 +13,16 @@
 <ROUTINE V-VERBOSE ()
 	 <SETG VERBOSE T>
 	 <SETG SUPER-BRIEF <>>
-	 <TELL "Maximum verbosity." CR>>
+	 <TELL "Descrizioni dettagliate." CR>>
 
 <ROUTINE V-BRIEF ()
 	 <SETG VERBOSE <>>
 	 <SETG SUPER-BRIEF <>>
-	 <TELL "Brief descriptions." CR>>
+	 <TELL "Descrizioni brevi." CR>>
 
 <ROUTINE V-SUPER-BRIEF ()
 	 <SETG SUPER-BRIEF T>
-	 <TELL "Superbrief descriptions." CR>>
+	 <TELL "Descrizioni telegrafiche." CR>>
 
 ;"V-DIAGNOSE is in ACTIONS.ZIL"
 
@@ -35,20 +35,20 @@
 	 <REPEAT ()
 		 <CRLF>
 		 <TELL
-"Would you like to restart the game from the beginning, restore a saved
-game position, or end this session of the game?|
-(Type RESTART, RESTORE, or QUIT):|
+"Vuoi ricominciare dall'inizio, ripristinare una partita salvata
+o terminare questa sessione?|
+(Scrivi RICOMINCIA, RIPRISTINA o ESCI):|
 >">
 		 <READ ,P-INBUF ,P-LEXV>
 		 <SET WRD <GET ,P-LEXV 1>>
 		 <COND (<EQUAL? .WRD ,W?RESTART>
 			<RESTART>
-			<TELL "Failed." CR>)
+			<TELL "Operazione fallita." CR>)
 		       (<EQUAL? .WRD ,W?RESTORE>
 			<COND (<RESTORE>
 			       <TELL "Ok." CR>)
 			      (T
-			       <TELL "Failed." CR>)>)
+			       <TELL "Operazione fallita." CR>)>)
 		       (<EQUAL? .WRD ,W?QUIT ,W?Q>
 			<QUIT>)>>>
 
@@ -64,33 +64,33 @@ game position, or end this session of the game?|
 	 <V-SCORE T>
 	 <TELL "Vuoi ricominciare? (S per confermare): ">
 	 <COND (<YES?>
-		<TELL "Restarting." CR>
+		<TELL "Riavvio in corso." CR>
 		<RESTART>
-		<TELL "Failed." CR>)>>
+		<TELL "Operazione fallita." CR>)>>
 
 <ROUTINE V-RESTORE ()
 	 <COND (<RESTORE>
 		<TELL "Ok." CR>
 		<V-FIRST-LOOK>)
 	       (T
-		<TELL "Failed." CR>)>>
+		<TELL "Operazione fallita." CR>)>>
 
 <ROUTINE V-SAVE ()
 	 <COND (<SAVE>
 	        <TELL "Ok." CR>)
 	       (T
-		<TELL "Failed." CR>)>>
+		<TELL "Operazione fallita." CR>)>>
 
 ;"V-SCORE is in ACTIONS.ZIL"
 
 <ROUTINE V-SCRIPT ()
 	<PUT 0 8 <BOR <GET 0 8> 1>>
-	<TELL "Here begins a transcript of interaction with" CR>
+	<TELL "Inizia la trascrizione dell'interazione con" CR>
 	<V-VERSION>
 	<RTRUE>>
 
 <ROUTINE V-UNSCRIPT ()
-	<TELL "Here ends a transcript of interaction with" CR>
+	<TELL "Termina la trascrizione dell'interazione con" CR>
 	<V-VERSION>
 	<PUT 0 8 <BAND <GET 0 8> -2>>
 	<RTRUE>>
@@ -121,11 +121,11 @@ Release ">
 	<CRLF>>
 
 <ROUTINE V-VERIFY ()
-	 <TELL "Verifying disk..." CR>
+	 <TELL "Verifica del disco..." CR>
 	 <COND (<VERIFY>
 		<TELL "Il disco è corretto." CR>)
 	       (T
-		<TELL CR "** Disk Failure **" CR>)>>
+		<TELL CR "** Errore del disco **" CR>)>>
 
 <ROUTINE V-COMMAND-FILE ()
 	 <DIRIN 1>
@@ -176,21 +176,21 @@ Release ">
 <ROUTINE V-ATTACK ()
 	 <COND (<NOT <FSET? ,PRSO ,ACTORBIT>>
 		<TELL
-"I've known strange people, but fighting a " D ,PRSO "?" CR>)
+"Ho conosciuto persone strane, ma combattere contro " D ,PRSO "?" CR>)
 	       (<OR <NOT ,PRSI>
 		    <EQUAL? ,PRSI ,HANDS>>
 		<TELL
-"Trying to attack a " D ,PRSO " with your bare hands is suicidal." CR>)
+"Attaccare " D ,PRSO " a mani nude è suicida." CR>)
 	       (<NOT <IN? ,PRSI ,WINNER>>
-		<TELL "You aren't even holding the " D ,PRSI "." CR>)
+		<TELL "Non stai nemmeno tenendo " D ,PRSI "." CR>)
 	       (<NOT <FSET? ,PRSI ,WEAPONBIT>>
 		<TELL
-"Trying to attack the " D ,PRSO " with a " D ,PRSI " is suicidal." CR>)
+"Trying to attack the " D ,PRSO " con " D ,PRSI " è suicida." CR>)
 	       (T
 	        %<COND (<==? ,ZORK-NUMBER 1>
 			'<HERO-BLOW>)
 		       (T
-			'<TELL "You can't." CR>)>)>>
+			'<TELL "Non puoi farlo." CR>)>)>>
 
 <ROUTINE V-BACK ()
 	 <TELL "Scusa, ho poca memoria. Specifica una direzione." CR>>
@@ -208,9 +208,9 @@ Release ">
 	       (<FSET? ,PRSO ,VEHBIT>
 		<COND (<NOT <IN? ,PRSO ,HERE>>
 		       <TELL
-"The " D ,PRSO " must be on the ground to be boarded." CR>)
+"Il " D ,PRSO " deve essere a terra per poterci salire." CR>)
 		      (<FSET? .AV ,VEHBIT>
-		       <TELL "You are already in the " D .AV "!" CR>)
+		       <TELL "Sei già dentro " D .AV "!" CR>)
 		      (T
 		       <RFALSE>)>)
 	       (<EQUAL? ,PRSO ,WATER ,GLOBAL-WATER>
@@ -218,11 +218,11 @@ Release ">
 		<RTRUE>)
 	       (T
 		<TELL
-"You have a theory on how to board a " D ,PRSO ", perhaps?" CR>)>
+"Hai forse una teoria su come salire su " D ,PRSO "?" CR>)>
 	 <RFATAL>>
 
 <ROUTINE V-BOARD ("AUX" AV)
-	 <TELL "You are now in the " D ,PRSO "." CR>
+	 <TELL "Ora sei dentro " D ,PRSO "." CR>
 	 <MOVE ,WINNER ,PRSO>
 	 <APPLY <GETP ,PRSO ,P?ACTION> ,M-ENTER>
 	 <RTRUE>>
@@ -231,14 +231,14 @@ Release ">
 	 <PERFORM ,V?INFLATE ,PRSO ,LUNGS>>
 
 <ROUTINE V-BRUSH ()
-	 <TELL "If you wish, but heaven only knows why." CR>>
+	 <TELL "Se proprio vuoi, anche se solo il cielo sa perché." CR>>
 
 <ROUTINE V-BUG ()
 	 <TELL
-"Bug? Not in a flawless program like this! (Cough, cough)." CR>>
+"Un bug? Non in un programma impeccabile come questo! (Tosse, tosse)." CR>>
 
 <ROUTINE TELL-NO-PRSI ()
-	 <TELL "You didn't say with what!" CR>>
+	 <TELL "Non hai detto con cosa!" CR>>
 
 <ROUTINE PRE-BURN ()
 	 <COND (<NOT ,PRSI>
@@ -246,7 +246,7 @@ Release ">
 	       (<FLAMING? ,PRSI>
 	        <RFALSE>)
 	       (T
-	        <TELL "With a " D ,PRSI "??!?" CR>)>>
+	        <TELL "Con " D ,PRSI "??!?" CR>)>>
 
 <ROUTINE V-BURN ()
 	 <COND %<COND (<==? ,ZORK-NUMBER 2>
@@ -413,7 +413,7 @@ Release ">
 	 <COND (<FSET? ,PRSI ,TOOLBIT>
 		<TELL "Digging with the " D ,PRSI " is slow and tedious." CR>)
 	       (T
-		<TELL "Digging with a " D ,PRSI " is silly." CR>)>>
+		<TELL "Digging con " D ,PRSI " is silly." CR>)>>
 
 <ROUTINE V-DISEMBARK ()
 	 <COND (<AND <EQUAL? ,PRSO ,ROOMS>
@@ -565,7 +565,7 @@ probably)." CR>>
 "The wand stops glowing, but there is no other obvious effect." CR>)
 			     (T
 			      <TELL
-"That might have done something, but it's hard to tell with a " D ,PRSO "." CR>)>)
+"That might have done something, but it's hard to tell con " D ,PRSO "." CR>)>)
 		      ;(<EQUAL? ,SPELL-USED ,W?FIREPROOF>
 		       <RTRUE>)
 		      (<EQUAL? ,SPELL-USED ,W?FUDGE>
@@ -1061,7 +1061,7 @@ you kill yourself, just as he might have done!" CR>
 <ROUTINE V-PUMP ()
 	 <COND %<COND (<==? ,ZORK-NUMBER 1>
 		       '(<AND ,PRSI <NOT <EQUAL? ,PRSI ,PUMP>>>
-		         <TELL "Pump it up with a " D ,PRSI "?" CR>))
+		         <TELL "Pump it up con " D ,PRSI "?" CR>))
 		      (T
 		       '(<NULL-F> <RTRUE>))>
 	       %<COND (<==? ,ZORK-NUMBER 1>
@@ -1321,7 +1321,7 @@ you kill yourself, just as he might have done!" CR>
 	 <COND (<FSET? ,PRSO ,ACTORBIT>
 		<TELL
 "Since you aren't versed in hand-to-hand combat, you'd better attack the "
-D ,PRSO " with a weapon." CR>)
+D ,PRSO " con weapon." CR>)
 	       (T
 		<PERFORM ,V?LAMP-ON ,PRSO>
 		<RTRUE>)>>

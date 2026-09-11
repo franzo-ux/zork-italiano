@@ -317,7 +317,7 @@ to brush them with." CR>)
 <ROUTINE FLY-ME ()
 	 <FWEEP 4>
 	 <TELL
-"The bat grabs you by the scruff of your neck and lifts you away...." CR CR>
+"Il pipistrello ti afferra per la collottola e ti porta via..." CR CR>
 	 <GOTO <PICK-ONE ,BAT-DROPS> <>>
 	 <COND (<NOT <EQUAL? ,HERE ,ENTRANCE-TO-HADES>>
 		<V-FIRST-LOOK>)>
@@ -350,22 +350,22 @@ to brush them with." CR>)
 
 <ROUTINE HOT-BELL-F ()
 	 <COND (<VERB? TAKE>
-		<TELL "The bell is very hot and cannot be taken." CR>)
+		<TELL "La campana è rovente e non può essere presa." CR>)
 	       (<OR <VERB? RUB> <AND <VERB? RING> ,PRSI>>
 		<COND (<FSET? ,PRSI ,BURNBIT>
-		       <TELL "The " D ,PRSI " burns and is consumed." CR>
+		       <TELL "Il " D ,PRSI " brucia e viene consumato." CR>
 		       <REMOVE-CAREFULLY ,PRSI>)
 		      (<EQUAL? ,PRSI ,HANDS>
-		       <TELL "The bell is too hot to touch." CR>)
+		       <TELL "La campana è troppo calda per essere toccata." CR>)
 		      (T
-		       <TELL "The heat from the bell is too intense." CR>)>)
+		       <TELL "Il calore della campana è troppo intenso." CR>)>)
 	       (<VERB? POUR-ON>
 		<REMOVE-CAREFULLY ,PRSO>
-		<TELL "The water cools the bell and is evaporated." CR>
+		<TELL "L'acqua raffredda la campana ed evapora." CR>
 		<QUEUE I-XBH 0>
 		<I-XBH>)
 	       (<VERB? RING>
-		<TELL "The bell is too hot to reach." CR>)>>
+		<TELL "La campana è troppo calda per essere raggiunta." CR>)>>
 
 <ROUTINE BOARDED-WINDOW-FCN ()
 	 <COND (<VERB? OPEN>
@@ -526,7 +526,7 @@ nailed shut, ">)>
 <ROUTINE CELLAR-FCN (RARG)
   <COND (<EQUAL? .RARG ,M-LOOK>
 	 <TELL
-"You are in a dark and damp cellar with a narrow passageway leading
+"Ti trovi in una cantina buia e umida, con uno stretto passaggio che conduce
 north, and a crawlway to the south. On the west is the bottom of a
 steep metal ramp which is unclimbable." CR>)
 	(<EQUAL? .RARG ,M-ENTER>
@@ -535,7 +535,7 @@ steep metal ramp which is unclimbable." CR>)
 		<FCLEAR ,TRAP-DOOR ,OPENBIT>
 		<FSET ,TRAP-DOOR ,TOUCHBIT>
 		<TELL
-"The trap door crashes shut, and you hear someone barring it." CR CR>)>)>>
+"La botola si chiude sbattendo e senti qualcuno sprangarla." CR CR>)>)>>
 
 <ROUTINE CHIMNEY-F ()
 	 <COND (<VERB? EXAMINE>
